@@ -3,11 +3,10 @@
 #include <list>
 #include <vector>
 #include <SFML/Graphics.hpp>
-
 using namespace std;
 using namespace sf;
 
-//текст
+// класс для текста
 /*class text_two
 {
 private:
