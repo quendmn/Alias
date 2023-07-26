@@ -160,7 +160,7 @@ public:
 
 };
 
-//кнопка
+//класс кнопки
 class Button :public text {
 private:
 
@@ -284,12 +284,17 @@ int main()
 	background.setTexture(&main_window);
 
 	// создание кнопки главного экрана
-	Button a(500, 70, "                  Play");
-	a.setFillRacktengelColor(202, 189, 233);
-	a.setFillTextColor(0, 0, 0);
-	a.setPosition(835, 718);
-	a.setCharacterSize(48);
-	
+	Button play_b(500, 70, "                  Play");
+	play_b.setFillRacktengelColor(202, 189, 233);
+	play_b.setFillTextColor(0, 0, 0);
+	play_b.setPosition(835, 611);
+	play_b.setCharacterSize(48);
+
+	Button rules_b(500, 70, "                 Rules");
+	rules_b.setFillRacktengelColor(202, 189, 233);
+	rules_b.setFillTextColor(0, 0, 0);
+	rules_b.setPosition(835, 718);
+	rules_b.setCharacterSize(48);
 	
 	while (window.isOpen())
 	{
@@ -306,28 +311,52 @@ int main()
 
 		}
 		
-		if (a.navediaMouse(event, mousePositon)) {
+		// кнопка Play
+		if (play_b.navediaMouse(event, mousePositon)) {
 
-			a.setFillRacktengelColor(255, 216, 132);
+			play_b.setFillRacktengelColor(255, 216, 132);
 
 		}
 		else
 		{
-			a.setFillRacktengelColor(202, 189, 233);
+			play_b.setFillRacktengelColor(202, 189, 233);
 
 		}
 
-		if (a.pressed(event, mousePositon)) {
+		if (play_b.pressed(event, mousePositon)) {
 
 			if (!main_window.loadFromFile("images/game_window.png")) return 4;
 			background.setTexture(&main_window);
 
-			a.setPosition(2000, 2000);
+			play_b.setPosition(2000, 2000);
+			rules_b.setPosition(2000, 2000);
+		}
+
+		// кнопка rules
+		if (rules_b.navediaMouse(event, mousePositon)) {
+
+			rules_b.setFillRacktengelColor(255, 216, 132);
+
+		}
+		else
+		{
+			rules_b.setFillRacktengelColor(202, 189, 233);
+
+		}
+
+		if (rules_b.pressed(event, mousePositon)) {
+
+			if (!main_window.loadFromFile("images/rules_window.png")) return 4;
+			background.setTexture(&main_window);
+
+			rules_b.setPosition(2000, 2000);
+			play_b.setPosition(2000, 2000);
 		}
 
 		window.clear();
 		window.draw(background);
-		a.draw(window);
+		play_b.draw(window);
+		rules_b.draw(window);
 		window.display();
 	}
 
