@@ -324,6 +324,15 @@ int main()
 
 			a.setPosition(2000, 2000);
 		}
+		if (Rules.pressed(event, mousePositon)) {
+				if (!main_window.loadFromFile("images/rules_window.png")) return 4;
+				background.setTexture(&main_window);
+
+				Rules.setPosition(2000, 2000);
+				a.setPosition(2000, 2000);
+			
+			
+		}
 
 		window.clear();
 		window.draw(background);
