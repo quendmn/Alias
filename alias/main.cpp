@@ -287,9 +287,14 @@ int main()
 	Button a(500, 70, "                  Play");
 	a.setFillRacktengelColor(202, 189, 233);
 	a.setFillTextColor(0, 0, 0);
-	a.setPosition(835, 718);
+	a.setPosition(835, 700);
 	a.setCharacterSize(48);
 	
+	Button Rules(500, 70, "                  Rules");
+	Rules.setFillRacktengelColor(202, 189, 233);
+	Rules.setFillTextColor(0, 0, 0);
+	Rules.setPosition(835, 800);
+	Rules.setCharacterSize(48);
 	
 	while (window.isOpen())
 	{
@@ -317,6 +322,17 @@ int main()
 
 		}
 
+		if (Rules.navediaMouse(event, mousePositon)) {
+
+			Rules.setFillRacktengelColor(255, 216, 132);
+
+		}
+		else
+		{
+			Rules.setFillRacktengelColor(202, 189, 233);
+
+		}
+
 		if (a.pressed(event, mousePositon)) {
 
 			if (!main_window.loadFromFile("images/game_window.png")) return 4;
@@ -324,10 +340,21 @@ int main()
 
 			a.setPosition(2000, 2000);
 		}
+		if (Rules.pressed(event, mousePositon)) {
+			do {
+				if (!main_window.loadFromFile("images/rules_window.png")) return 4;
+				background.setTexture(&main_window);
+
+				Rules.setPosition(2000, 2000);
+				a.setPosition(2000, 2000);
+			}
+			while (!Keyboard::isKeyPressed(Keyboard::Escape));
+		}
 
 		window.clear();
 		window.draw(background);
 		a.draw(window);
+		Rules.draw(window);
 		window.display();
 	}
 
