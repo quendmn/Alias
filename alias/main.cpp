@@ -352,12 +352,12 @@ int main()
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
 		}
-		if (Rules.pressed(event, mousePositon)) {
+		if (rules_b.pressed(event, mousePositon)) {
 				if (!main_window.loadFromFile("images/rules_window.png")) return 4;
 				background.setTexture(&main_window);
 
-				Rules.setPosition(2000, 2000);
-				a.setPosition(2000, 2000);
+				rules_b.setPosition(2000, 2000);
+				rules_b.setPosition(2000, 2000);
 			
 			
 		}
