@@ -309,8 +309,8 @@ int main()
 			play_b.setPosition(2000, 2000);
 		}
 		if (rules_b.pressed(event, mousePositon)) {
-				if (!main_window.loadFromFile("images/rules_window.png")) return 4;
-				background.setTexture(&main_window);
+				if (!window_background.loadFromFile("images/rules_window.png")) return 4;
+				background.setTexture(&window_background);
 
 				rules_b.setPosition(2000, 2000);
 				rules_b.setPosition(2000, 2000);
