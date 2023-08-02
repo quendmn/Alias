@@ -6,6 +6,8 @@
 using namespace std;
 using namespace sf;
 
+
+
 // класс текста
 class text {
 private:
@@ -200,6 +202,16 @@ public:
 	}
 };
 
+void Timer(text& a, float duration, String timerString, Clock &timer) {
+	a.setPosition(650, 450);
+	Time time = timer.restart();
+	if (duration > 0) {
+		duration -= time.asSeconds();
+		timerString = std::to_string(duration);
+		a.setString(timerString);
+	}
+}
+
 int main()
 {
 	// создание окна #1 (главное меню)
@@ -255,6 +267,24 @@ int main()
 	pcmode_b.setPosition(2000, 2000);
 	pcmode_b.setCharacterSize(48);
 
+	//создание текста для таймера
+	text time_text("00:000");
+	time_text.setPosition(2000, 2000);
+	time_text.setFillTextColor(0, 0, 0);
+	time_text.setCharacterSize(60);
+
+
+	//создание таймера
+	Clock timer;
+	float duration = 20.0f;
+	String timerString;
+	float fMilliseconds, fSeconds; //переменные для хранения  значения с плавающей точкой в секундах и милисекундах
+	int intMilliseconds, intSeconds;// снова переменные, но уже int
+	sf::String stringMilliseconds;// переменная для хранения значения int в милисекундах(!) в строковом формате
+	sf::String stringSeconds; //   Эта переменная предназначена для хранения значения секунд int в строковом формате.
+
+
+
 
 	
 	while (window.isOpen())
@@ -271,6 +301,34 @@ int main()
 				window.close();
 
 		}
+		//проверка кода таймера на главном окне
+		// 
+		//time_text.setPosition(720, 450);
+		//Time time = timer.restart();
+
+		//if (duration > 0) {// штуки для преобразований таймера из туториала
+		//	duration -= time.asSeconds();
+		//	fMilliseconds = modf(duration, &fSeconds);
+		//	intSeconds = static_cast<int>(fSeconds);
+		//	intMilliseconds = static_cast<int>(fMilliseconds * 1000);
+		//	stringMilliseconds = std::to_string(intMilliseconds);
+		//	stringSeconds = std::to_string(intSeconds);
+
+		//	if (intMilliseconds <= 0) {
+		//		stringMilliseconds = "000";
+		//	}
+		//	if (intSeconds <= 0) {
+		//		stringSeconds = "00";
+		//	}
+		//	else if (intSeconds < 10) {
+		//		stringSeconds = "0" + stringSeconds;
+		//	}
+		//	timerString = stringSeconds + ":" + stringMilliseconds;
+		//	time_text.setString(timerString);// вывод таймера в текст 
+		//}
+
+
+
 	
 		// кнопка Play
 		if (play_b.navediaMouse(event, mousePositon)) {
@@ -318,15 +376,7 @@ int main()
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
 		}
-		if (rules_b.pressed(event, mousePositon)) {
-				if (!window_background.loadFromFile("images/rules_window.png")) return 4;
-				background.setTexture(&window_background);
-
-				rules_b.setPosition(2000, 2000);
-				rules_b.setPosition(2000, 2000);
-			
-			
-		}
+		
 
 		// кнопка Back
 		if (back_b.navediaMouse(event, mousePositon)) {
@@ -345,7 +395,8 @@ int main()
 			if (!window_background.loadFromFile("images/main_window.png")) return 4;
 			background.setTexture(&window_background);
 
-			back_b.setPosition(2000, 2000);  // убираем
+			back_b.setPosition(2000, 2000);// убираем
+			time_text.setPosition(2000, 2000);//убираем
 			play_b.setPosition(835, 611);    // возвращаем
 			rules_b.setPosition(835, 718);   // возвращаем
 		}
@@ -370,11 +421,37 @@ int main()
 			if (!window_background.loadFromFile("images/game_window.png")) return 4;
 			background.setTexture(&window_background);
 
+			// тут таймер работает некорректно
+			time_text.setPosition(640, 450);
+			Time time = timer.restart();
+			if (duration > 0) {// штуки для преобразований таймера из туториала
+				duration -= time.asSeconds();
+				fMilliseconds = modf(duration, &fSeconds);
+				intSeconds = static_cast<int>(fSeconds);
+				intMilliseconds = static_cast<int>(fMilliseconds * 1000);
+				stringMilliseconds = std::to_string(intMilliseconds);
+				stringSeconds = std::to_string(intSeconds);
+
+				if (intMilliseconds <= 0) {
+					stringMilliseconds = "000";
+				}
+				if (intSeconds <= 0) {
+					stringSeconds = "00";
+				}
+				else if (intSeconds < 10) {
+					stringSeconds = "0" + stringSeconds;
+				}
+				timerString = stringSeconds + ":" + stringMilliseconds;
+				time_text.setString(timerString);// вывод таймера в текст 
+			}
+
+			
 			back_b.setPosition(135, 85);
 			pcmode_b.setPosition(2000, 2000);
 			playermode_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
+
 		}
 
 		// кнопка Player vs pc
@@ -409,7 +486,7 @@ int main()
 		play_b.draw(window);
 		rules_b.draw(window);
 		back_b.draw(window);
-
+		time_text.draw(window);
 		window.display();
 	}
 
