@@ -210,6 +210,16 @@ int main()
 	if (!window_background.loadFromFile("images/main_window.png")) return 4;
 	background.setTexture(&window_background);
 
+	// создание иконки
+
+	Image icon;
+	if (!icon.loadFromFile("images/icon.png"))
+	{
+		return 1;
+	}
+	window.setIcon(32, 32, icon.getPixelsPtr());
+
+
 	// создание кнопки Play (::главное меню)
 	Button play_b(500, 70, "                  Play");
 	play_b.setFillRacktengelColor(202, 189, 233);
@@ -231,14 +241,14 @@ int main()
 	back_b.setPosition(2000, 2000);
 	back_b.setCharacterSize(48);
 
-	// создание кнопки режимa с игроками
+	// создание кнопки Player vs Player
 	Button playermode_b(805, 155, "Player vs player");
 	playermode_b.setFillRacktengelColor(149, 165, 58);
 	playermode_b.setFillTextColor(255, 255, 221);
 	playermode_b.setPosition(2000, 2000);
 	playermode_b.setCharacterSize(48);
 
-	// создание кнопки режимa с пк
+	// создание кнопки Player vs pc
 	Button pcmode_b(805, 155, "Player vs pc");
 	pcmode_b.setFillRacktengelColor(149, 165, 58);
 	pcmode_b.setFillTextColor(255, 255, 221);
@@ -309,8 +319,8 @@ int main()
 			play_b.setPosition(2000, 2000);
 		}
 		if (rules_b.pressed(event, mousePositon)) {
-				if (!main_window.loadFromFile("images/rules_window.png")) return 4;
-				background.setTexture(&main_window);
+				if (!window_background.loadFromFile("images/rules_window.png")) return 4;
+				background.setTexture(&window_background);
 
 				rules_b.setPosition(2000, 2000);
 				rules_b.setPosition(2000, 2000);
