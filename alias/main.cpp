@@ -254,14 +254,14 @@ int main()
 	back_b.setCharacterSize(48);
 
 	// создание кнопки Player vs Player
-	Button playermode_b(805, 155, "Player vs player");
+	Button playermode_b(805, 155, "\n                    Player vs player");
 	playermode_b.setFillRacktengelColor(149, 165, 58);
 	playermode_b.setFillTextColor(255, 255, 221);
 	playermode_b.setPosition(2000, 2000);
 	playermode_b.setCharacterSize(48);
 
 	// создание кнопки Player vs pc
-	Button pcmode_b(805, 155, "Player vs pc");
+	Button pcmode_b(805, 155, "\n                       Player vs pc");
 	pcmode_b.setFillRacktengelColor(149, 165, 58);
 	pcmode_b.setFillTextColor(255, 255, 221);
 	pcmode_b.setPosition(2000, 2000);
@@ -276,13 +276,14 @@ int main()
 
 	//создание таймера
 	Clock timer;
-	float duration = 20.0f;
+	float duration = 10.0f;
 	String timerString;
 	float fMilliseconds, fSeconds; //переменные для хранения  значения с плавающей точкой в секундах и милисекундах
 	int intMilliseconds, intSeconds;// снова переменные, но уже int
 	sf::String stringMilliseconds;// переменная для хранения значения int в милисекундах(!) в строковом формате
 	sf::String stringSeconds; //   Эта переменная предназначена для хранения значения секунд int в строковом формате.
-
+	
+	
 
 
 
@@ -301,31 +302,30 @@ int main()
 				window.close();
 
 		}
-		//проверка кода таймера на главном окне
-		// 
-		//time_text.setPosition(720, 450);
-		//Time time = timer.restart();
+		//создание таймера (изначальный вывод за пределы экрана)
+		 
+		Time time = timer.restart();
 
-		//if (duration > 0) {// штуки для преобразований таймера из туториала
-		//	duration -= time.asSeconds();
-		//	fMilliseconds = modf(duration, &fSeconds);
-		//	intSeconds = static_cast<int>(fSeconds);
-		//	intMilliseconds = static_cast<int>(fMilliseconds * 1000);
-		//	stringMilliseconds = std::to_string(intMilliseconds);
-		//	stringSeconds = std::to_string(intSeconds);
+		if (duration > 0) {// штуки для преобразований таймера из туториала
+			duration -= time.asSeconds();
+			fMilliseconds = modf(duration, &fSeconds);
+			intSeconds = static_cast<int>(fSeconds);
+			intMilliseconds = static_cast<int>(fMilliseconds * 100);
+			stringMilliseconds = std::to_string(intMilliseconds);
+			stringSeconds = std::to_string(intSeconds);
 
-		//	if (intMilliseconds <= 0) {
-		//		stringMilliseconds = "000";
-		//	}
-		//	if (intSeconds <= 0) {
-		//		stringSeconds = "00";
-		//	}
-		//	else if (intSeconds < 10) {
-		//		stringSeconds = "0" + stringSeconds;
-		//	}
-		//	timerString = stringSeconds + ":" + stringMilliseconds;
-		//	time_text.setString(timerString);// вывод таймера в текст 
-		//}
+			if (intMilliseconds <= 0) {
+				stringMilliseconds = "00";
+			}
+			if (intSeconds <= 0) {
+				stringSeconds = "00";
+			}
+			else if (intSeconds < 10) {
+				stringSeconds = "0" + stringSeconds;
+			}
+			timerString = stringSeconds + ":" + stringMilliseconds;
+			time_text.setString(timerString);// вывод таймера в текст 
+		}
 
 
 
@@ -401,7 +401,7 @@ int main()
 			rules_b.setPosition(835, 718);   // возвращаем
 		}
 
-		// кнопка Player vs Player
+		// кнопка Player vs player
 
 		if (playermode_b.navediaMouse(event, mousePositon)) {
 
@@ -418,41 +418,36 @@ int main()
 
 		if (playermode_b.pressed(event, mousePositon)) {
 
-			if (!window_background.loadFromFile("images/game_window.png")) return 4;
+			if (!window_background.loadFromFile("images/player_game_first_window.png")) return 4;
 			background.setTexture(&window_background);
 
-			// тут таймер работает некорректно
-			time_text.setPosition(640, 450);
-			Time time = timer.restart();
-			if (duration > 0) {// штуки для преобразований таймера из туториала
-				duration -= time.asSeconds();
-				fMilliseconds = modf(duration, &fSeconds);
-				intSeconds = static_cast<int>(fSeconds);
-				intMilliseconds = static_cast<int>(fMilliseconds * 1000);
-				stringMilliseconds = std::to_string(intMilliseconds);
-				stringSeconds = std::to_string(intSeconds);
-
-				if (intMilliseconds <= 0) {
-					stringMilliseconds = "000";
-				}
-				if (intSeconds <= 0) {
-					stringSeconds = "00";
-				}
-				else if (intSeconds < 10) {
-					stringSeconds = "0" + stringSeconds;
-				}
-				timerString = stringSeconds + ":" + stringMilliseconds;
-				time_text.setString(timerString);// вывод таймера в текст 
-			}
-
-			
 			back_b.setPosition(135, 85);
-			pcmode_b.setPosition(2000, 2000);
+
 			playermode_b.setPosition(2000, 2000);
+			pcmode_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
 
+			time_text.setPosition(571, 625);
+			Time time = timer.restart();
+			
+			/*if (stringMilliseconds == "00" && stringSeconds == "00")   //if (duration == 0)  //if (intSeconds == 0 && intMilliseconds == 0)
+			{
+				if (!window_background.loadFromFile("images/player_game_second_window.png")) return 4;
+				background.setTexture(&window_background);
+
+				back_b.setPosition(135, 85);
+
+				time_text.setPosition(2000, 2000);
+				playermode_b.setPosition(2000, 2000);
+				pcmode_b.setPosition(2000, 2000);
+				rules_b.setPosition(2000, 2000);
+				play_b.setPosition(2000, 2000);
+			}*/
+
 		}
+
+		
 
 		// кнопка Player vs pc
 
@@ -486,7 +481,10 @@ int main()
 		play_b.draw(window);
 		rules_b.draw(window);
 		back_b.draw(window);
+		playermode_b.draw(window);
+		pcmode_b.draw(window);
 		time_text.draw(window);
+
 		window.display();
 	}
 
