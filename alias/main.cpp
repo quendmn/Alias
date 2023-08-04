@@ -3,6 +3,7 @@
 #include <list>
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include "InputWordsAndClues.hpp"
 using namespace std;
 using namespace sf;
 
