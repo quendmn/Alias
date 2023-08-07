@@ -4,204 +4,206 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "InputWordsAndClues.hpp"
+#include "text.hpp"
+#include "Button.hpp"
 using namespace std;
 using namespace sf;
 
 
 
 // класс текста
-class text {
-private:
-
-	string shribe;
-	Font font;
-
-public:
-
-	Text txt;
-
-	text(String shribeName) {
-
-		font.loadFromFile("font/Forum.ttf");
-
-		txt.setFont(font);
-		txt.setCharacterSize(20);
-
-		//начальный цвет
-		txt.setFillColor(Color(0, 0, 0));
-
-		txt.setString(shribeName);
-
-		shribe = shribeName;
-
-	}
-
-	//текст будет следить за спрайтом
-	virtual void sleditForSprite(Sprite& s, float x, float y) {
-
-		txt.setPosition(s.getPosition().x + x, s.getPosition().y + y);
-
-	}
-
-	//дать число тексту
-	void getChislo(float n) {
-
-		ostringstream chislo;
-
-		chislo << n;
-
-		txt.setString(shribe + chislo.str());
-
-	}
-
-	//ф-я для текста
-	void setString(string name) {
-
-		txt.setString(name);
-
-	}
-
-	virtual void setPosition(float x, float y) {
-
-		txt.setPosition(x, y);
-
-	}
-
-	void setFillTextColor(float R, float G1, float B) {
-
-		txt.setFillColor(Color(R, G1, B));
-
-	}
-
-	//поменять размер шрифта
-	void setCharacterSize(float a) {
-
-		txt.setCharacterSize(a);
-
-	}
-
-	//нарисовать в окне
-	virtual void draw(RenderWindow& window) {
-
-		window.draw(txt);
-
-	};
-
-
-};
+//class text {
+//private:
+//
+//	string shribe;
+//	Font font;
+//
+//public:
+//
+//	Text txt;
+//
+//	text(String shribeName) {
+//
+//		font.loadFromFile("font/Forum.ttf");
+//
+//		txt.setFont(font);
+//		txt.setCharacterSize(20);
+//
+//		//начальный цвет
+//		txt.setFillColor(Color(0, 0, 0));
+//
+//		txt.setString(shribeName);
+//
+//		shribe = shribeName;
+//
+//	}
+//
+//	//текст будет следить за спрайтом
+//	virtual void sleditForSprite(Sprite& s, float x, float y) {
+//
+//		txt.setPosition(s.getPosition().x + x, s.getPosition().y + y);
+//
+//	}
+//
+//	//дать число тексту
+//	void getChislo(float n) {
+//
+//		ostringstream chislo;
+//
+//		chislo << n;
+//
+//		txt.setString(shribe + chislo.str());
+//
+//	}
+//
+//	//ф-я для текста
+//	void setString(string name) {
+//
+//		txt.setString(name);
+//
+//	}
+//
+//	virtual void setPosition(float x, float y) {
+//
+//		txt.setPosition(x, y);
+//
+//	}
+//
+//	void setFillTextColor(float R, float G1, float B) {
+//
+//		txt.setFillColor(Color(R, G1, B));
+//
+//	}
+//
+//	//поменять размер шрифта
+//	void setCharacterSize(float a) {
+//
+//		txt.setCharacterSize(a);
+//
+//	}
+//
+//	//нарисовать в окне
+//	virtual void draw(RenderWindow& window) {
+//
+//		window.draw(txt);
+//
+//	};
+//
+//
+//};
 
 //класс кнопки
-class Button :public text {
-private:
-
-	float w, h; //ширина и высота кнопки
-
-	bool press;   // нажата ли
-
-
-public:
-
-	RectangleShape button; //сам крвадрат
-
-	Button(float W, float H, string shribeName) :text(shribeName) {
-
-
-		w = W;
-		h = H;
-
-		press = false;
-
-		button.setSize(Vector2f(W, H));
-
-		txt.setPosition(button.getPosition());
-
-	}
-
-	//кнопка следит за спрайтом
-	void sleditForSprite(Sprite& s, float x, float y) override {
-
-		button.setPosition(s.getPosition().x + x, s.getPosition().y + y);
-		txt.setPosition(s.getPosition().x + x, s.getPosition().y + y);
-
-	}
-
-	//рисуеи и кнопк(квадрат) и текст
-	void draw(RenderWindow& window)override {
-
-		txt.setPosition(button.getPosition());
-
-
-		window.draw(button);
-		window.draw(txt);
-	}
-
-	//нажатие
-	bool pressed(Event& event, Vector2f  pos) {
-
-		if (button.getGlobalBounds().contains(pos.x, pos.y) && event.type == Event::MouseButtonPressed && !press) {
-
-			if (event.key.code == Mouse::Left) {
-
-				press = true;
-				return true;
-			}
-
-		};
-
-		if (!(press)) return false;
-
-		if (press) {
-
-			if (!(event.type == Event::MouseButtonPressed)) {
-
-				press = false;
-
-			}
-
-			return false;
-
-		}
-
-	};
-
-	//наведeна мышка
-	bool navediaMouse(Event& event, Vector2f  pos) {
-
-		if (button.getGlobalBounds().contains(pos.x, pos.y)) return true;
-
-		else return false;
-
-	}
-
-	//поменять размеры квадрата кнопки 
-	void setButtonSize(float W, float H) {
-
-		w = W;
-		h = H;
-
-		button.setSize(Vector2f(W, H));
-
-	}
-
-	//Поменять на центр 
-	void setOringCenter() {
-
-		button.setOrigin(w/2, h/2);
-	}
-
-	//поменять позицию
-	void setPosition(float x, float y)  override {
-
-		button.setPosition(x, y);
-
-	}
-	//поменять цвет квадрата
-	void setFillRacktengelColor(float R, float G, float B) {
-
-		button.setFillColor(Color(R, G, B));
-
-	}
-};
+//class Button :public text {
+//private:
+//
+//	float w, h; //ширина и высота кнопки
+//
+//	bool press;   // нажата ли
+//
+//
+//public:
+//
+//	RectangleShape button; //сам крвадрат
+//
+//	Button(float W, float H, string shribeName) :text(shribeName) {
+//
+//
+//		w = W;
+//		h = H;
+//
+//		press = false;
+//
+//		button.setSize(Vector2f(W, H));
+//
+//		txt.setPosition(button.getPosition());
+//
+//	}
+//
+//	//кнопка следит за спрайтом
+//	void sleditForSprite(Sprite& s, float x, float y) override {
+//
+//		button.setPosition(s.getPosition().x + x, s.getPosition().y + y);
+//		txt.setPosition(s.getPosition().x + x, s.getPosition().y + y);
+//
+//	}
+//
+//	//рисуеи и кнопк(квадрат) и текст
+//	void draw(RenderWindow& window)override {
+//
+//		txt.setPosition(button.getPosition());
+//
+//
+//		window.draw(button);
+//		window.draw(txt);
+//	}
+//
+//	//нажатие
+//	bool pressed(Event& event, Vector2f  pos) {
+//
+//		if (button.getGlobalBounds().contains(pos.x, pos.y) && event.type == Event::MouseButtonPressed && !press) {
+//
+//			if (event.key.code == Mouse::Left) {
+//
+//				press = true;
+//				return true;
+//			}
+//
+//		};
+//
+//		if (!(press)) return false;
+//
+//		if (press) {
+//
+//			if (!(event.type == Event::MouseButtonPressed)) {
+//
+//				press = false;
+//
+//			}
+//
+//			return false;
+//
+//		}
+//
+//	};
+//
+//	//наведeна мышка
+//	bool navediaMouse(Event& event, Vector2f  pos) {
+//
+//		if (button.getGlobalBounds().contains(pos.x, pos.y)) return true;
+//
+//		else return false;
+//
+//	}
+//
+//	//поменять размеры квадрата кнопки 
+//	void setButtonSize(float W, float H) {
+//
+//		w = W;
+//		h = H;
+//
+//		button.setSize(Vector2f(W, H));
+//
+//	}
+//
+//	//Поменять на центр 
+//	void setOringCenter() {
+//
+//		button.setOrigin(w/2, h/2);
+//	}
+//
+//	//поменять позицию
+//	void setPosition(float x, float y)  override {
+//
+//		button.setPosition(x, y);
+//
+//	}
+//	//поменять цвет квадрата
+//	void setFillRacktengelColor(float R, float G, float B) {
+//
+//		button.setFillColor(Color(R, G, B));
+//
+//	}
+//};
 
 void Timer(text& a, float duration, String timerString, Clock &timer) {
 	a.setPosition(650, 450);
