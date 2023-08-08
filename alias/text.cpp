@@ -3,7 +3,7 @@
 
 Text txt;
 
-text::text(String shribeName) {
+text::text(String titleName) {
 
 	font.loadFromFile("font/Forum.ttf");
 
@@ -13,32 +13,27 @@ text::text(String shribeName) {
 	//начальный цвет
 	txt.setFillColor(Color(0, 0, 0));
 
-	txt.setString(shribeName);
+	txt.setString(titleName);
 
-	shribe = shribeName;
+	title = titleName;
 
 }
 
 //текст будет следить за спрайтом
-void text::sleditForSprite(Sprite& s, float x, float y)
+void text::followSprite(Sprite& s, float x, float y)
 {	
 	txt.setPosition(s.getPosition().x + x, s.getPosition().y + y);
 }
 
 //дать число тексту
-void text::getChislo(float n)
+void text::getNumber(float n)
 {
 	ostringstream chislo;
 
 	chislo << n;
 
-	txt.setString(shribe + chislo.str());
+	txt.setString(title + chislo.str());
 }
-
-
-
-
-
 
 
 //ф-я для текста

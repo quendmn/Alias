@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 
 RectangleShape button;
-//Button::Button(float W, float H, string shribeName) :text(shribeName){
+//Button::Button(float W, float H, string titleName) :text(titleName){
 //
 //
 //	w = W;
@@ -15,7 +15,7 @@ RectangleShape button;
 //	txt.setPosition(button.getPosition());
 //
 //}
-void Button::sleditForSprite(Sprite& s, float x, float y){
+void Button::followSprite(Sprite& s, float x, float y){
 
 	button.setPosition(s.getPosition().x + x, s.getPosition().y + y);
 	txt.setPosition(s.getPosition().x + x, s.getPosition().y + y);
@@ -54,7 +54,7 @@ bool Button::pressed(Event& event, Vector2f  pos) {
 
 	}
 }
-bool Button::navediaMouse(Event& event, Vector2f  pos) {
+bool Button::pointedMouse(Event& event, Vector2f  pos) {
 	if (button.getGlobalBounds().contains(pos.x, pos.y)) return true;
 
 	else return false;
@@ -83,7 +83,7 @@ void Button::setPosition(float x, float y){
 }
 
 //поменять цвет квадрата
-void Button::setFillRacktengelColor(float R, float G, float B) {
+void Button::setFillRecktangelColor(float R, float G, float B) {
 
 	button.setFillColor(Color(R, G, B));
 

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _TEXT HPP_
 #define _TEXT HPP_
 
@@ -13,7 +14,7 @@ using namespace sf;
 class text {
 private:
 
-	string shribe;
+	string title;
 	Font font;
 
 public:
@@ -21,9 +22,9 @@ public:
 	Text txt;
 	text(String shribeName);
 
-	virtual void sleditForSprite(Sprite& s, float x, float y);
+	virtual void followSprite(Sprite& s, float x, float y);
 
-	void getChislo(float n);
+	void getNumber(float n);
 
 	void setString(string name);
 

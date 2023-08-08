@@ -237,41 +237,41 @@ int main()
 
 	// создание кнопки Play (::главное меню)
 	Button play_b(500, 70, "                  Play");
-	play_b.setFillRacktengelColor(202, 189, 233);
+	play_b.setFillRecktangelColor(202, 189, 233);
 	play_b.setFillTextColor(0, 0, 0);
 	play_b.setPosition(835, 611);
 	play_b.setCharacterSize(48);
 
 	// создание кнопки Rules (::главное меню)
 	Button rules_b(500, 70, "                 Rules");
-	rules_b.setFillRacktengelColor(202, 189, 233);
+	rules_b.setFillRecktangelColor(202, 189, 233);
 	rules_b.setFillTextColor(0, 0, 0);
 	rules_b.setPosition(835, 718);
 	rules_b.setCharacterSize(48);
 	
 	// создание кнопки Back 
 	Button back_b(105, 55, "Back");
-	back_b.setFillRacktengelColor(149, 165, 58);
+	back_b.setFillRecktangelColor(149, 165, 58);
 	back_b.setFillTextColor(255, 255, 221);
 	back_b.setPosition(2000, 2000);
 	back_b.setCharacterSize(48);
 
 	// создание кнопки Player vs Player
 	Button playermode_b(805, 155, "\n                    Player vs player");
-	playermode_b.setFillRacktengelColor(149, 165, 58);
+	playermode_b.setFillRecktangelColor(149, 165, 58);
 	playermode_b.setFillTextColor(255, 255, 221);
 	playermode_b.setPosition(2000, 2000);
 	playermode_b.setCharacterSize(48);
 
 	// создание кнопки Player vs pc
 	Button pcmode_b(805, 155, "\n                       Player vs pc");
-	pcmode_b.setFillRacktengelColor(149, 165, 58);
+	pcmode_b.setFillRecktangelColor(149, 165, 58);
 	pcmode_b.setFillTextColor(255, 255, 221);
 	pcmode_b.setPosition(2000, 2000);
 	pcmode_b.setCharacterSize(48);
 
 	//создание текста дл€ таймера
-	text time_text("00:000");
+	text time_text("00:00");
 	time_text.setPosition(2000, 2000);
 	time_text.setFillTextColor(0, 0, 0);
 	time_text.setCharacterSize(60);
@@ -284,7 +284,7 @@ int main()
 	float fMilliseconds, fSeconds; //переменные дл€ хранени€  значени€ с плавающей точкой в секундах и милисекундах
 	int intMilliseconds, intSeconds;// снова переменные, но уже int
 	sf::String stringMilliseconds;// переменна€ дл€ хранени€ значени€ int в милисекундах(!) в строковом формате
-	sf::String stringSeconds; //   Ёта переменна€ предназначена дл€ хранени€ значени€ секунд int в строковом формате.
+	sf::String stringSeconds; //   Ёта переменна€ предназначена дл€ хранени€ значени€ секунд int в строковом формате.*/
 	
 	
 
@@ -334,14 +334,14 @@ int main()
 
 	
 		// кнопка Play
-		if (play_b.navediaMouse(event, mousePositon)) {
+		if (play_b.pointedMouse(event, mousePositon)) {
 
-			play_b.setFillRacktengelColor(255, 216, 132);
+			play_b.setFillRecktangelColor(255, 216, 132);
 
 		}
 		else
 		{
-			play_b.setFillRacktengelColor(202, 189, 233);
+			play_b.setFillRecktangelColor(202, 189, 233);
 
 		}
 
@@ -359,14 +359,14 @@ int main()
 		}
 
 		// кнопка Rules
-		if (rules_b.navediaMouse(event, mousePositon)) {
+		if (rules_b.pointedMouse(event, mousePositon)) {
 
-			rules_b.setFillRacktengelColor(255, 216, 132);
+			rules_b.setFillRecktangelColor(255, 216, 132);
 
 		}
 		else
 		{
-			rules_b.setFillRacktengelColor(202, 189, 233);
+			rules_b.setFillRecktangelColor(202, 189, 233);
 
 		}
 
@@ -382,7 +382,7 @@ int main()
 		
 
 		// кнопка Back
-		if (back_b.navediaMouse(event, mousePositon)) {
+		if (back_b.pointedMouse(event, mousePositon)) {
 
 			back_b.setFillTextColor(255, 216, 132);
 
@@ -406,15 +406,15 @@ int main()
 
 		// кнопка Player vs player
 
-		if (playermode_b.navediaMouse(event, mousePositon)) {
+		if (playermode_b.pointedMouse(event, mousePositon)) {
 
-			playermode_b.setFillRacktengelColor(255, 216, 132);
+			playermode_b.setFillRecktangelColor(255, 216, 132);
 			playermode_b.setFillTextColor(0, 0, 0);
 
 		}
 		else
 		{
-			playermode_b.setFillRacktengelColor(149, 165, 58);
+			playermode_b.setFillRecktangelColor(149, 165, 58);
 			playermode_b.setFillTextColor(255, 255, 221);
 
 		}
@@ -431,8 +431,8 @@ int main()
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
 
-			time_text.setPosition(571, 625);
 			Time time = timer.restart();
+			time_text.setPosition(650, 625);
 			
 			/*if (stringMilliseconds == "00" && stringSeconds == "00")   //if (duration == 0)  //if (intSeconds == 0 && intMilliseconds == 0)
 			{
@@ -454,15 +454,15 @@ int main()
 
 		// кнопка Player vs pc
 
-		if (pcmode_b.navediaMouse(event, mousePositon)) {
+		if (pcmode_b.pointedMouse(event, mousePositon)) {
 
-			pcmode_b.setFillRacktengelColor(255, 216, 132);
+			pcmode_b.setFillRecktangelColor(255, 216, 132);
 			pcmode_b.setFillTextColor(0, 0, 0);
 
 		}
 		else
 		{
-			pcmode_b.setFillRacktengelColor(149, 165, 58);
+			pcmode_b.setFillRecktangelColor(149, 165, 58);
 			pcmode_b.setFillTextColor(255, 255, 221);
 
 		}
