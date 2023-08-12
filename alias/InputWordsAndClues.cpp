@@ -1,16 +1,16 @@
 #include "InputWordsAndClues.hpp"
 
-void InputWordsAndClues(std::string* arr)
+int InputWordsAndClues(std::string* arr)
 {
 	const std::string fileName = "dictionary2.txt";
 	std::ifstream wordsRand(fileName);
 
 	if (!wordsRand.is_open())
 	{
-		//надо будет сделать вывод ошибки
+		return 4;
 	}
 	else {
-		int line = rand() % 3;//ввести конечное кол-во строчек
+		int line = 328; // конечное кол-во строчек
 		std::string currentLine;
 		int counter = 0;
 
@@ -30,7 +30,7 @@ void InputWordsAndClues(std::string* arr)
 				{
 					if (splitString == *(",")) {	//если splitString равна запятой мы меняем индекс для заполнения другой ячейки другими подсказками
 						i++;
-						continue; //contune для того чтоб в слова/подсказки не записывалась запятая
+						continue; //continue для того чтоб в слова/подсказки не записывалась запятая
 					}
 					arr[i].push_back(splitString);//записываем по смвольно так как проходимся char-ом а не целой строкой
 				}
@@ -40,4 +40,5 @@ void InputWordsAndClues(std::string* arr)
 	}
 
 	wordsRand.close();
+	return 0;
 }

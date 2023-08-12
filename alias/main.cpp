@@ -234,6 +234,9 @@ int main()
 	}
 	window.setIcon(32, 32, icon.getPixelsPtr());
 
+	// создание массива со словами и подсказками
+
+	string *WordsAndClues = new string;
 
 	// создание кнопки Play (::главное меню)
 	Button play_b(500, 70, "                  Play");
@@ -269,6 +272,14 @@ int main()
 	pcmode_b.setFillTextColor(255, 255, 221);
 	pcmode_b.setPosition(2000, 2000);
 	pcmode_b.setCharacterSize(48);
+
+
+	// создание временной кнопки
+	Button ready_b(660, 70, "             We are ready!");
+	ready_b.setFillRecktangelColor(149, 165, 58);
+	ready_b.setFillTextColor(255, 255, 221);
+	ready_b.setPosition(2000, 2000);
+	ready_b.setCharacterSize(48);
 
 	//создание текста для таймера
 	text time_text("00:00");
@@ -356,6 +367,7 @@ int main()
 
 			play_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
+			ready_b.setPosition(2000, 2000);
 		}
 
 		// кнопка Rules
@@ -378,6 +390,7 @@ int main()
 			back_b.setPosition(135, 85);
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
+			ready_b.setPosition(2000, 2000);
 		}
 		
 
@@ -398,10 +411,11 @@ int main()
 			if (!window_background.loadFromFile("images/main_window.png")) return 4;
 			background.setTexture(&window_background);
 
-			back_b.setPosition(2000, 2000);// убираем
-			time_text.setPosition(2000, 2000);//убираем
-			play_b.setPosition(835, 611);    // возвращаем
-			rules_b.setPosition(835, 718);   // возвращаем
+			back_b.setPosition(2000, 2000);    // убираем
+			time_text.setPosition(2000, 2000); // убираем
+			play_b.setPosition(835, 611);      // возвращаем
+			rules_b.setPosition(835, 718);     // возвращаем
+			ready_b.setPosition(2000, 2000);
 		}
 
 		// кнопка Player vs player
@@ -425,6 +439,7 @@ int main()
 			background.setTexture(&window_background);
 
 			back_b.setPosition(135, 85);
+			ready_b.setPosition(650, 625);
 
 			playermode_b.setPosition(2000, 2000);
 			pcmode_b.setPosition(2000, 2000);
@@ -432,7 +447,8 @@ int main()
 			play_b.setPosition(2000, 2000);
 
 			Time time = timer.restart();
-			time_text.setPosition(650, 625);
+			time_text.setPosition(147, 625);
+
 			
 			/*if (stringMilliseconds == "00" && stringSeconds == "00")   //if (duration == 0)  //if (intSeconds == 0 && intMilliseconds == 0)
 			{
@@ -477,6 +493,37 @@ int main()
 			play_b.setPosition(2000, 2000);
 		}*/
 
+		// кнопка ready
+
+		if (ready_b.pointedMouse(event, mousePositon)) {
+
+			ready_b.setFillRecktangelColor(255, 216, 132);
+			ready_b.setFillTextColor(0, 0, 0);
+
+		}
+		else
+		{
+			ready_b.setFillRecktangelColor(149, 165, 58);
+			ready_b.setFillTextColor(255, 255, 221);
+
+		}
+
+		if (ready_b.pressed(event, mousePositon)) {
+
+			if (!window_background.loadFromFile("images/game_window.png")) return 4;
+			background.setTexture(&window_background);
+
+
+
+			playermode_b.setPosition(2000, 2000);
+			pcmode_b.setPosition(2000, 2000);
+			rules_b.setPosition(2000, 2000);
+			play_b.setPosition(2000, 2000);
+			time_text.setPosition(2000, 2000);
+			ready_b.setPosition(2000, 2000);
+		}
+
+
 
 		window.clear();
 		window.draw(background);
@@ -486,6 +533,7 @@ int main()
 		back_b.draw(window);
 		playermode_b.draw(window);
 		pcmode_b.draw(window);
+		ready_b.draw(window);
 		time_text.draw(window);
 
 		window.display();

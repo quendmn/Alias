@@ -8,7 +8,7 @@
 #include <string>
 #include <sstream>
 
-void InputWordsAndClues(std::string* arr);
+int InputWordsAndClues(std::string* arr);
 
 #endif
 
