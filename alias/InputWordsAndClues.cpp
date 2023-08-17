@@ -10,7 +10,7 @@ int InputWordsAndClues(std::string* arr)
 		return 4;
 	}
 	else {
-		int line = 328; // конечное кол-во строчек
+		int line = 325; // конечное кол-во строчек
 		std::string currentLine;
 		int counter = 0;
 

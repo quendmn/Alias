@@ -205,6 +205,15 @@ using namespace sf;
 //	}
 //};
 
+void Words(text &a, string* WordsAndClues) {
+	InputWordsAndClues(WordsAndClues);
+	string wordString = WordsAndClues[0];
+	text word(wordString);
+	word.setPosition(200, 200);
+	word.setFillTextColor(0, 0, 0);
+	word.setCharacterSize(60);
+}
+
 void Timer(text& a, float duration, String timerString, Clock &timer) {
 	a.setPosition(650, 450);
 	Time time = timer.restart();
@@ -236,14 +245,14 @@ int main()
 
 	// !!новое: создание переменных для вывода слов и подсказок
 
-	string* WordsAndClues = new string;
+	//string* WordsAndClues = new string;
 	//InputWordsAndClues(WordsAndClues);  // при вызове функции появляется ошибка вызов функции abort() / просто вылетает прога
-	
-	string wordString = WordsAndClues[0];
-	text word(wordString);
-	word.setPosition(200, 200);
-	word.setFillTextColor(0, 0, 0);
-	word.setCharacterSize(60);
+	//
+	//string wordString = WordsAndClues[0];
+	//text word(wordString);
+	//word.setPosition(200, 200);
+	//word.setFillTextColor(0, 0, 0);
+	//word.setCharacterSize(60);
 	
 
 	// создание кнопки Play (::главное меню)
@@ -350,7 +359,22 @@ int main()
 			time_text.setString(timerString);// вывод таймера в текст 
 		}
 
+		if (timerString == "00:00")//(stringMilliseconds == "00" && stringSeconds == "00")   //if (duration == 0)  //if (intSeconds == 0 && intMilliseconds == 0)
+			{
+				/*if (!window_background.loadFromFile("images/player_game_second_window.png")) return 4;
+				background.setTexture(&window_background);*/
+				if (!window_background.loadFromFile("images/game_window.png")) return 4;
+				background.setTexture(&window_background);
 
+				back_b.setPosition(135, 85);
+
+				time_text.setPosition(2000, 2000);
+				playermode_b.setPosition(2000, 2000);
+				pcmode_b.setPosition(2000, 2000);
+				rules_b.setPosition(2000, 2000);
+				play_b.setPosition(2000, 2000);
+				ready_b.setPosition(2000, 2000);
+			}
 
 	
 		// кнопка Play
@@ -457,23 +481,11 @@ int main()
 
 			Time time = timer.restart();
 			time_text.setPosition(147, 625);
-
 			
-			/*if (stringMilliseconds == "00" && stringSeconds == "00")   //if (duration == 0)  //if (intSeconds == 0 && intMilliseconds == 0)
-			{
-				if (!window_background.loadFromFile("images/player_game_second_window.png")) return 4;
-				background.setTexture(&window_background);
-
-				back_b.setPosition(135, 85);
-
-				time_text.setPosition(2000, 2000);
-				playermode_b.setPosition(2000, 2000);
-				pcmode_b.setPosition(2000, 2000);
-				rules_b.setPosition(2000, 2000);
-				play_b.setPosition(2000, 2000);
-			}*/
-
+			
+			
 		}
+		
 
 		
 
@@ -544,7 +556,7 @@ int main()
 		pcmode_b.draw(window);
 		ready_b.draw(window);
 		time_text.draw(window);
-
+		//word.draw(window);
 		window.display();
 	}
 
