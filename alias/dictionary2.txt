@@ -88,9 +88,9 @@ JURY,A group of experts who determine prizes, awards prizes, prizes at exhibitio
 Complaint,An expression of displeasure about something unpleasant, suffering, pain. 2.Official statement with a request for the elimination of any order, injustice.
 ZAKOLKA,Zakrepka, hair clip
 PLAY,An amusement, game
-Fence A fence, mostly wooden.
-Misconception The state of one who is misguided, mistaken.
-HOARDING, accumulation of something or other, preventing passage, passage
+Fence,A fence, mostly wooden.
+Misconception,The state of one who is misguided, mistaken.
+HOARDING,accumulation of something or other, preventing passage, passage
 PLANT,An industrial enterprise with mechanized production processes 2. An enterprise for breeding thoroughbred and pedigree animals.
 CHANGE,of the first place. Strangeness, confusion in thought, in reasoning
 Conspiracy,A secret agreement on joint actions against someone-n. for political and other purposes.
@@ -167,11 +167,9 @@ FLOODING The flooding of land by water that has risen from its banks.
 AWARD,Something that is given, received as a token of special gratitude, appreciation.
 HOPE,Belief that something can be realized.
 INSCRIPTION,A short text on the surface of something.
-A fine-grained rock used as an abrasive material.
 TAX,A fixed compulsory payment levied on citizens and legal entities.
 FITTING,Part of a device or instrument, put on something.
 TINCTURE,Alcoholic extract of some substance, plant.
-Lack of something, found when counting.
 LUNCH,A meal, usually in the middle of the day.
 OBEDIENCE,An unjustly inflicted affliction, insult, and the feeling caused by it.
 EXAMPLE,A demonstration or test piece.
@@ -264,7 +262,6 @@ HIJINA,A small poor house, a hut.
 HIRURG,A doctor - a specialist in surgery.
 HUTOR,A detached plot of land with a homestead of the owner.
 TARAPINA,A wound on the scratched skin.
-Tsaritsa, Wife of the tsar.
 FLOWER,A bright, often fragrant head or inflorescence on the stem of such a plant.
 ZEDRA,The top layer of the peel of a citrus, and such dried and crushed peel as is used as a spice.
 Goal,An object of endeavor, something to be pursued, desirable to be realized.
@@ -290,7 +287,7 @@ STEP,A movement of the foot in walking, running, and the distance from foot to f
 Puck,A small heavy rubber disk used when playing ice hockey.
 SHALASH,A light building made of poles covered with branches, straw, grass.
 SHAMAN,some peoples who keep belief in spirits and in the possibility of ritual communication with them: a servant of the cult; witch doctor, able to bring himself into a state of ecstasy.
-A HAT, a headdress (mostly warm, soft).
+A HAT,a headdress (mostly warm, soft).
 CHASIS,The main part of an automobile, tractor or other vehicle - the frame, on which the body, engine, all mechanisms and parts are mounted.
 SHOSSE,Road paved with crushed stone, as well as any road with a hard surface.
 STANGA,Sporting apparatus - a metal rod with weights in the form of removable disks at the ends.

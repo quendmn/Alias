@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef _INPUTWORDSANDCLUES HPP_
 
 #define _INPUTWORDSANDCLUES HPP_
