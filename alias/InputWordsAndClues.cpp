@@ -14,7 +14,7 @@ int InputWordsAndClues(std::string* arr)
 		std::string currentLine;
 		int counter = 0;
 
-		for (int i = 0; i < 2; i++)//очищаем массив потому-что push_back() лишь добавляет элемент, но не заменяет
+		for (int i = 0; i < arr->size(); i++)//очищаем массив потому-что push_back() лишь добавляет элемент, но не заменяет
 		{
 			if (arr[i] != "")
 			{
