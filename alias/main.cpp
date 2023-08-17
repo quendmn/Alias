@@ -234,9 +234,17 @@ int main()
 	}
 	window.setIcon(32, 32, icon.getPixelsPtr());
 
-	// создание массива со словами и подсказками
+	// !!новое: создание переменных для вывода слов и подсказок
 
-	string *WordsAndClues = new string;
+	string* WordsAndClues = new string;
+	//InputWordsAndClues(WordsAndClues);  // при вызове функции появляется ошибка вызов функции abort() / просто вылетает прога
+	
+	string wordString = WordsAndClues[0];
+	text word(wordString);
+	word.setPosition(200, 200);
+	word.setFillTextColor(0, 0, 0);
+	word.setCharacterSize(60);
+	
 
 	// создание кнопки Play (::главное меню)
 	Button play_b(500, 70, "                  Play");
@@ -287,6 +295,7 @@ int main()
 	time_text.setFillTextColor(0, 0, 0);
 	time_text.setCharacterSize(60);
 
+	
 
 	//создание таймера
 	Clock timer;
