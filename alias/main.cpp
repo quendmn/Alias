@@ -245,14 +245,15 @@ int main()
 
 	// !!новое: создание переменных для вывода слов и подсказок
 
-	//string* WordsAndClues = new string;
-	//InputWordsAndClues(WordsAndClues);  // при вызове функции появляется ошибка вызов функции abort() / просто вылетает прога
-	//
-	//string wordString = WordsAndClues[0];
-	//text word(wordString);
-	//word.setPosition(200, 200);
-	//word.setFillTextColor(0, 0, 0);
-	//word.setCharacterSize(60);
+	string* WordsAndCluesArr = new string;
+	//InputWordsAndCluesV2(WordsAndCluesArr);  
+	InputWordsAndCluesV3(WordsAndCluesArr);
+	string wordString = WordsAndCluesArr[0];
+
+	text word(wordString);
+	word.setPosition(200, 200);
+	word.setFillTextColor(0, 0, 0);
+	word.setCharacterSize(60);
 	
 
 	// создание кнопки Play (::главное меню)
@@ -298,14 +299,13 @@ int main()
 	ready_b.setPosition(2000, 2000);
 	ready_b.setCharacterSize(48);
 
-	//создание текста для таймера
+	/*//создание текста для таймера
 	text time_text("00:00");
 	time_text.setPosition(2000, 2000);
 	time_text.setFillTextColor(0, 0, 0);
 	time_text.setCharacterSize(60);
 
 	
-
 	//создание таймера
 	Clock timer;
 	float duration = 10.0f;
@@ -334,7 +334,7 @@ int main()
 				window.close();
 
 		}
-		//создание таймера (изначальный вывод за пределы экрана)
+		/*//создание таймера (изначальный вывод за пределы экрана)
 		 
 		Time time = timer.restart();
 
@@ -362,7 +362,7 @@ int main()
 		if (timerString == "00:00")//(stringMilliseconds == "00" && stringSeconds == "00")   //if (duration == 0)  //if (intSeconds == 0 && intMilliseconds == 0)
 			{
 				/*if (!window_background.loadFromFile("images/player_game_second_window.png")) return 4;
-				background.setTexture(&window_background);*/
+				background.setTexture(&window_background);
 				if (!window_background.loadFromFile("images/game_window.png")) return 4;
 				background.setTexture(&window_background);
 
@@ -374,7 +374,7 @@ int main()
 				rules_b.setPosition(2000, 2000);
 				play_b.setPosition(2000, 2000);
 				ready_b.setPosition(2000, 2000);
-			}
+			}*/
 
 	
 		// кнопка Play
@@ -445,7 +445,9 @@ int main()
 			background.setTexture(&window_background);
 
 			back_b.setPosition(2000, 2000);    // убираем
-			time_text.setPosition(2000, 2000); // убираем
+			//time_text.setPosition(2000, 2000); // убираем
+			playermode_b.setPosition(2000, 2000);
+			pcmode_b.setPosition(2000, 2000);
 			play_b.setPosition(835, 611);      // возвращаем
 			rules_b.setPosition(835, 718);     // возвращаем
 			ready_b.setPosition(2000, 2000);
@@ -479,8 +481,8 @@ int main()
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
 
-			Time time = timer.restart();
-			time_text.setPosition(147, 625);
+			//Time time = timer.restart();
+			//time_text.setPosition(147, 625);
 			
 			
 			
@@ -540,7 +542,7 @@ int main()
 			pcmode_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
-			time_text.setPosition(2000, 2000);
+			//time_text.setPosition(2000, 2000);
 			ready_b.setPosition(2000, 2000);
 		}
 
@@ -555,7 +557,10 @@ int main()
 		playermode_b.draw(window);
 		pcmode_b.draw(window);
 		ready_b.draw(window);
-		time_text.draw(window);
+
+		word.draw(window);
+		//wordButton.draw(window);
+		//time_text.draw(window);
 		//word.draw(window);
 		window.display();
 	}
