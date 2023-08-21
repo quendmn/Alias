@@ -138,7 +138,7 @@ int Start(RenderWindow& window)
 
 
 
-	if (window.isOpen())
+	while (window.isOpen())
 	{
 
 		Vector2i mouse = Mouse::getPosition(window);
