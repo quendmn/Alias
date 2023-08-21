@@ -1,4 +1,4 @@
-#pragma
+#pragma once
 #ifndef _BUTTON HPP_
 #define _BUTTON HPP_
 
@@ -8,7 +8,7 @@
 #include <string>
 #include <sstream>
 #include <SFML/Graphics.hpp>
-#include "text.hpp"
+#include "Text.hpp"
 
 using namespace std;
 using namespace sf;

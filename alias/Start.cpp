@@ -10,41 +10,37 @@
 using namespace std;
 using namespace sf;
 
-void Words(text &a, string* WordsAndClues) {
-	InputWordsAndClues(WordsAndClues);
-	string wordString = WordsAndClues[0];
-	text word(wordString);
-	word.setPosition(200, 200);
-	word.setFillTextColor(0, 0, 0);
-	word.setCharacterSize(60);
-}
 
-void Timer(text& a, float duration, String timerString, Clock &timer) {
-	a.setPosition(650, 450);
-	Time time = timer.restart();
-	if (duration > 0) {
-		duration -= time.asSeconds();
-		timerString = std::to_string(duration);
-		a.setString(timerString);
-	}
-}
-
-int main()
+int WordOutput(RenderWindow& window, string* WordsAndCluesArr)
 {
-	// создание окна #1 (главное меню)
-	RenderWindow window(sf::VideoMode(1440, 900), "Alias");
+	if (window.isOpen()) {
+		for (int i = 0; i < 1; i++)
+		{
+			InputWordsAndClues(WordsAndCluesArr);
+			string wordString = WordsAndCluesArr[0];
 
-	Start(window);
+			text word(wordString);
+			word.setPosition(525, 498);
+			word.setFillTextColor(0, 0, 0);
+			word.setCharacterSize(85);
 
-	/*
+			word.draw(window);
+		}
+		
+	}
+	
+
+
+	return 0;
+}
+
+int Start(RenderWindow& window)
+{
 	RectangleShape background(Vector2f(1440, 900));
 	Texture window_background;
 	if (!window_background.loadFromFile("images/main_window.png")) return 4;
 	background.setTexture(&window_background);
 
-	Start(window);
-
-	
 	// создание иконки
 
 	Image icon;
@@ -54,18 +50,20 @@ int main()
 	}
 	window.setIcon(32, 32, icon.getPixelsPtr());
 
-	// !!новое: создание переменных для вывода слов и подсказок
+	// создание переменных для вывода слов и подсказок
 
 	string* WordsAndCluesArr = new string;
-	//InputWordsAndCluesV2(WordsAndCluesArr);  
-	InputWordsAndCluesV3(WordsAndCluesArr);
+	string* WordsAndCluesArrtwo = new string;
+	
+	InputWordsAndClues(WordsAndCluesArr);
+
 	string wordString = WordsAndCluesArr[0];
 
 	text word(wordString);
-	word.setPosition(200, 200);
+	word.setPosition(2000, 2000);
 	word.setFillTextColor(0, 0, 0);
-	word.setCharacterSize(60);
-	
+	word.setCharacterSize(85);
+
 
 	// создание кнопки Play (::главное меню)
 	Button play_b(500, 70, "                  Play");
@@ -80,7 +78,7 @@ int main()
 	rules_b.setFillTextColor(0, 0, 0);
 	rules_b.setPosition(835, 718);
 	rules_b.setCharacterSize(48);
-	
+
 	// создание кнопки Back 
 	Button back_b(105, 55, "Back");
 	back_b.setFillRecktangelColor(149, 165, 58);
@@ -95,28 +93,37 @@ int main()
 	playermode_b.setPosition(2000, 2000);
 	playermode_b.setCharacterSize(48);
 
-	// создание кнопки Player vs pc
-	Button pcmode_b(805, 155, "\n                       Player vs pc");
-	pcmode_b.setFillRecktangelColor(149, 165, 58);
-	pcmode_b.setFillTextColor(255, 255, 221);
-	pcmode_b.setPosition(2000, 2000);
-	pcmode_b.setCharacterSize(48);
-
-
-	// создание временной кнопки
+	// создание временной кнопки ready
 	Button ready_b(660, 70, "             We are ready!");
 	ready_b.setFillRecktangelColor(149, 165, 58);
 	ready_b.setFillTextColor(255, 255, 221);
 	ready_b.setPosition(2000, 2000);
 	ready_b.setCharacterSize(48);
 
-	//создание текста для таймера
+	// создание кнопки guessed
+
+	Button guessed_b(390, 65, "          guessed!");
+	guessed_b.setFillRecktangelColor(149, 165, 58);
+	guessed_b.setFillTextColor(255, 255, 221);
+	guessed_b.setPosition(2000, 2000);
+	guessed_b.setCharacterSize(48);
+
+	// создание кнопки skip
+
+	Button skip_b(390, 65, "             skip");
+	skip_b.setFillRecktangelColor(149, 165, 58);
+	skip_b.setFillTextColor(255, 255, 221);
+	skip_b.setPosition(2000, 2000);
+	skip_b.setCharacterSize(48);
+
+
+	/*//создание текста для таймера
 	text time_text("00:00");
 	time_text.setPosition(2000, 2000);
 	time_text.setFillTextColor(0, 0, 0);
 	time_text.setCharacterSize(60);
 
-	
+
 	//создание таймера
 	Clock timer;
 	float duration = 10.0f;
@@ -124,14 +131,14 @@ int main()
 	float fMilliseconds, fSeconds; //переменные для хранения  значения с плавающей точкой в секундах и милисекундах
 	int intMilliseconds, intSeconds;// снова переменные, но уже int
 	sf::String stringMilliseconds;// переменная для хранения значения int в милисекундах(!) в строковом формате
-	sf::String stringSeconds; //   Эта переменная предназначена для хранения значения секунд int в строковом формате.
-	
-	
+	sf::String stringSeconds; //   Эта переменная предназначена для хранения значения секунд int в строковом формате.*/
 
 
 
-	
-	while (window.isOpen())
+
+
+
+	if (window.isOpen())
 	{
 
 		Vector2i mouse = Mouse::getPosition(window);
@@ -145,8 +152,8 @@ int main()
 				window.close();
 
 		}
-		//создание таймера (изначальный вывод за пределы экрана)
-		 
+		/*//создание таймера (изначальный вывод за пределы экрана)
+
 		Time time = timer.restart();
 
 		if (duration > 0) {// штуки для преобразований таймера из туториала
@@ -167,7 +174,7 @@ int main()
 				stringSeconds = "0" + stringSeconds;
 			}
 			timerString = stringSeconds + ":" + stringMilliseconds;
-			time_text.setString(timerString);// вывод таймера в текст 
+			time_text.setString(timerString);// вывод таймера в текст
 		}
 
 		if (timerString == "00:00")//(stringMilliseconds == "00" && stringSeconds == "00")   //if (duration == 0)  //if (intSeconds == 0 && intMilliseconds == 0)
@@ -185,9 +192,9 @@ int main()
 				rules_b.setPosition(2000, 2000);
 				play_b.setPosition(2000, 2000);
 				ready_b.setPosition(2000, 2000);
-			}
+			}*/
 
-	
+
 		// кнопка Play
 		if (play_b.pointedMouse(event, mousePositon)) {
 
@@ -206,8 +213,7 @@ int main()
 			background.setTexture(&window_background);
 
 			back_b.setPosition(135, 85);
-			playermode_b.setPosition(317, 312);
-			pcmode_b.setPosition(317, 563);
+			playermode_b.setPosition(317, 450);
 
 			play_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
@@ -236,7 +242,7 @@ int main()
 			play_b.setPosition(2000, 2000);
 			ready_b.setPosition(2000, 2000);
 		}
-		
+
 
 		// кнопка Back
 		if (back_b.pointedMouse(event, mousePositon)) {
@@ -258,7 +264,6 @@ int main()
 			back_b.setPosition(2000, 2000);    // убираем
 			//time_text.setPosition(2000, 2000); // убираем
 			playermode_b.setPosition(2000, 2000);
-			pcmode_b.setPosition(2000, 2000);
 			play_b.setPosition(835, 611);      // возвращаем
 			rules_b.setPosition(835, 718);     // возвращаем
 			ready_b.setPosition(2000, 2000);
@@ -288,43 +293,14 @@ int main()
 			ready_b.setPosition(650, 625);
 
 			playermode_b.setPosition(2000, 2000);
-			pcmode_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
 
 			//Time time = timer.restart();
 			//time_text.setPosition(147, 625);
-			
-			
-			
-		}
-		
 
-		
 
-		// кнопка Player vs pc
 
-		if (pcmode_b.pointedMouse(event, mousePositon)) {
-
-			pcmode_b.setFillRecktangelColor(255, 216, 132);
-			pcmode_b.setFillTextColor(0, 0, 0);
-
-		}
-		else
-		{
-			pcmode_b.setFillRecktangelColor(149, 165, 58);
-			pcmode_b.setFillTextColor(255, 255, 221);
-
-		}
-
-		/*if (pcmode_b.pressed(event, mousePositon)) {
-
-			if (!window_background.loadFromFile("images/rules_window.png")) return 4;
-			background.setTexture(&window_background);
-
-			back_b.setPosition(135, 85);
-			rules_b.setPosition(2000, 2000);
-			play_b.setPosition(2000, 2000);
 		}
 
 		// кнопка ready
@@ -347,37 +323,95 @@ int main()
 			if (!window_background.loadFromFile("images/game_window.png")) return 4;
 			background.setTexture(&window_background);
 
-
+			WordOutput(window, WordsAndCluesArr);
+			//word.setPosition(525, 498);
+			guessed_b.setPosition(316, 726);
+			skip_b.setPosition(769, 726);
 
 			playermode_b.setPosition(2000, 2000);
-			pcmode_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
 			//time_text.setPosition(2000, 2000);
 			ready_b.setPosition(2000, 2000);
 		}
 
+		// кнопка guessed
 
+		if (guessed_b.pointedMouse(event, mousePositon)) {
+
+			guessed_b.setFillRecktangelColor(255, 216, 132);
+			guessed_b.setFillTextColor(0, 0, 0);
+
+		}
+		else
+		{
+			guessed_b.setFillRecktangelColor(149, 165, 58);
+			guessed_b.setFillTextColor(255, 255, 221);
+
+		}
+
+		if (guessed_b.pressed(event, mousePositon)) {
+
+			InputWordsAndClues(WordsAndCluesArr);
+
+			//word.setPosition(525, 498);
+			skip_b.setPosition(769, 726);
+
+			playermode_b.setPosition(2000, 2000);
+			rules_b.setPosition(2000, 2000);
+			play_b.setPosition(2000, 2000);
+			//time_text.setPosition(2000, 2000);
+			ready_b.setPosition(2000, 2000);
+
+		}
+
+		// кнопка skip
+
+		if (skip_b.pointedMouse(event, mousePositon)) {
+
+			skip_b.setFillRecktangelColor(255, 216, 132);
+			skip_b.setFillTextColor(0, 0, 0);
+
+		}
+		else
+		{
+			skip_b.setFillRecktangelColor(149, 165, 58);
+			skip_b.setFillTextColor(255, 255, 221);
+
+		}
+
+		if (skip_b.pressed(event, mousePositon)) {
+
+
+			//word.setPosition(525, 498);
+
+			playermode_b.setPosition(2000, 2000);
+			rules_b.setPosition(2000, 2000);
+			play_b.setPosition(2000, 2000);
+			//time_text.setPosition(2000, 2000);
+			ready_b.setPosition(2000, 2000);
+			
+		}
+
+		
 
 		window.clear();
 		window.draw(background);
 
+		word.draw(window);
 		play_b.draw(window);
 		rules_b.draw(window);
 		back_b.draw(window);
 		playermode_b.draw(window);
-		pcmode_b.draw(window);
 		ready_b.draw(window);
+		guessed_b.draw(window);
+		skip_b.draw(window);
 
-		word.draw(window);
 		//wordButton.draw(window);
 		//time_text.draw(window);
 		//word.draw(window);
 		window.display();
-	}*/
-
-
+	}
 
 	return 0;
 }
-
