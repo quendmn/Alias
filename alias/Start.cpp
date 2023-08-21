@@ -138,7 +138,7 @@ int Start(RenderWindow& window)
 
 
 
-	if (window.isOpen())
+	while (window.isOpen())
 	{
 
 		Vector2i mouse = Mouse::getPosition(window);
@@ -323,8 +323,7 @@ int Start(RenderWindow& window)
 			if (!window_background.loadFromFile("images/game_window.png")) return 4;
 			background.setTexture(&window_background);
 
-			WordOutput(window, WordsAndCluesArr);
-			//word.setPosition(525, 498);
+			word.setPosition(525, 498);
 			guessed_b.setPosition(316, 726);
 			skip_b.setPosition(769, 726);
 
@@ -354,7 +353,7 @@ int Start(RenderWindow& window)
 
 			InputWordsAndClues(WordsAndCluesArr);
 
-			//word.setPosition(525, 498);
+			word.setPosition(525, 498);
 			skip_b.setPosition(769, 726);
 
 			playermode_b.setPosition(2000, 2000);
@@ -383,7 +382,7 @@ int Start(RenderWindow& window)
 		if (skip_b.pressed(event, mousePositon)) {
 
 
-			//word.setPosition(525, 498);
+			word.setPosition(525, 498);
 
 			playermode_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
