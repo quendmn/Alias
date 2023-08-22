@@ -267,6 +267,11 @@ int Start(RenderWindow& window)
 			play_b.setPosition(835, 611);      // возвращаем
 			rules_b.setPosition(835, 718);     // возвращаем
 			ready_b.setPosition(2000, 2000);
+			guessed_b.setPosition(2000, 2000);
+			skip_b.setPosition(2000, 2000);
+			word.setPosition(2000, 2000);
+
+
 		}
 
 		// кнопка Player vs player
