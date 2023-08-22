@@ -383,21 +383,20 @@ int Start(RenderWindow& window)
 			skip_b.setFillTextColor(255, 255, 221);
 
 		}
-		for (size_t i = 0; i < 10; i++)
-		{
-			if (skip_b.pressed(event, mousePositon)) {
+		
+		
+		if (skip_b.pressed(event, mousePositon)) {
 
-			InputWordsAndClues(WordsAndCluesArr);
-			word.setPosition(525, 498);
+		InputWordsAndClues(WordsAndCluesArr);
+		word.setPosition(525, 498);
 
-			playermode_b.setPosition(2000, 2000);
-			rules_b.setPosition(2000, 2000);
-			play_b.setPosition(2000, 2000);
-			//time_text.setPosition(2000, 2000);
-			ready_b.setPosition(2000, 2000);
-			
+		playermode_b.setPosition(2000, 2000);
+		rules_b.setPosition(2000, 2000);
+		play_b.setPosition(2000, 2000);
+		//time_text.setPosition(2000, 2000);
+		ready_b.setPosition(2000, 2000);
 		}
-		}
+		
 		
 
 		
