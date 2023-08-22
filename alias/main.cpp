@@ -1,11 +1,11 @@
-#include <iostream>
-#include <sstream>
-#include <list>
-#include <vector>
-#include <SFML/Graphics.hpp>
-#include "InputWordsAndClues.hpp"
-#include "Text.hpp"
-#include "Button.hpp"
+//#include <iostream>
+//#include <sstream>
+//#include <list>
+//#include <vector>
+//#include <SFML/Graphics.hpp>
+//#include "InputWordsAndClues.hpp"
+//#include "Text.hpp"
+//#include "Button.hpp"
 #include "Start.hpp"
 using namespace std;
 using namespace sf;
