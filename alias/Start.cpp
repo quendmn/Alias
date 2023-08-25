@@ -358,6 +358,11 @@ int Start(RenderWindow& window)
 			play_b.setPosition(835, 611);      
 			rules_b.setPosition(835, 718);     
 			ready_b.setPosition(2000, 2000);
+			guessed_b.setPosition(2000, 2000);
+			skip_b.setPosition(2000, 2000);
+			word.setPosition(2000, 2000);
+
+
 		}
 
 		// кнопка Player vs player
@@ -597,7 +602,8 @@ int Start(RenderWindow& window)
 			skip_b.setFillTextColor(255, 255, 221);
 
 		}
-
+		
+		
 		if (skip_b.pressed(event, mousePositon)) {
 
 			counter++;
