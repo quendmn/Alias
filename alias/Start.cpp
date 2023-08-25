@@ -176,8 +176,8 @@ int Start(RenderWindow& window)
 	playermode_b.setPosition(2000, 2000);
 	playermode_b.setCharacterSize(48);
 
-	// создание временной кнопки ready
-	Button ready_b(660, 70, "             We are ready!");
+	// создание кнопки ready
+	Button ready_b(660, 70, "               We are ready!");
 	ready_b.setFillRecktangelColor(149, 165, 58);
 	ready_b.setFillTextColor(255, 255, 221);
 	ready_b.setPosition(2000, 2000);
@@ -198,6 +198,14 @@ int Start(RenderWindow& window)
 	skip_b.setFillTextColor(255, 255, 221);
 	skip_b.setPosition(2000, 2000);
 	skip_b.setCharacterSize(48);
+
+	// создание кнопки next round
+	Button next_b(517, 70, "             next round");
+	next_b.setFillRecktangelColor(149, 165, 58);
+	next_b.setFillTextColor(255, 255, 221);
+	next_b.setPosition(2000, 2000);
+	next_b.setCharacterSize(48);
+
 
 
 	/*//создание текста для таймера
@@ -321,6 +329,7 @@ int Start(RenderWindow& window)
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
 			ready_b.setPosition(2000, 2000);
+			next_b.setPosition(2000, 2000);
 		}
 
 
@@ -337,9 +346,12 @@ int Start(RenderWindow& window)
 		}
 
 		if (back_b.pressed(event, mousePositon)) {
-
+			
 			if (!window_background.loadFromFile("images/main_window.png")) return 4;
 			background.setTexture(&window_background);
+
+			counter = 1;
+			score = 0;
 
 			word_one.setPosition(2000,2000);
 			word_two.setPosition(2000, 2000);
@@ -360,8 +372,8 @@ int Start(RenderWindow& window)
 			ready_b.setPosition(2000, 2000);
 			guessed_b.setPosition(2000, 2000);
 			skip_b.setPosition(2000, 2000);
-			word.setPosition(2000, 2000);
-
+			score_t.setPosition(2000, 2000);
+			next_b.setPosition(2000, 2000);
 
 		}
 
@@ -382,11 +394,11 @@ int Start(RenderWindow& window)
 
 		if (playermode_b.pressed(event, mousePositon)) {
 
-			if (!window_background.loadFromFile("images/player_game_first_window.png")) return 4;
+			if (!window_background.loadFromFile("images/player_game_window.png")) return 4;
 			background.setTexture(&window_background);
 
 			back_b.setPosition(135, 85);
-			ready_b.setPosition(650, 625);
+			ready_b.setPosition(403, 557);
 
 			playermode_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
@@ -401,6 +413,7 @@ int Start(RenderWindow& window)
 			word_eight.setPosition(2000, 2000);
 			word_nine.setPosition(2000, 2000);
 			word_ten.setPosition(2000, 2000);
+			next_b.setPosition(2000, 2000);
 
 		}
 
@@ -577,10 +590,13 @@ int Start(RenderWindow& window)
 				guessed_b.setPosition(2000, 2000);
 				skip_b.setPosition(2000, 2000);
 				score_t.setPosition(1190, 510);
+				next_b.setPosition(458, 700);
+				playermode_b.setPosition(2000, 2000);
+				rules_b.setPosition(2000, 2000);
+				play_b.setPosition(2000, 2000);
+				ready_b.setPosition(2000, 2000);
 			}
 		
-
-			
 			playermode_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
@@ -717,14 +733,67 @@ int Start(RenderWindow& window)
 				guessed_b.setPosition(2000, 2000);
 				skip_b.setPosition(2000, 2000);
 				score_t.setPosition(1190, 510);
+				next_b.setPosition(458, 700);
+				playermode_b.setPosition(2000, 2000);
+				rules_b.setPosition(2000, 2000);
+				play_b.setPosition(2000, 2000);
+				ready_b.setPosition(2000, 2000);
 			}
 
 			playermode_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
 			ready_b.setPosition(2000, 2000);
-			
+
 		}
+
+
+		// кнопка next_b
+		if (next_b.pointedMouse(event, mousePositon)) {
+
+			next_b.setFillRecktangelColor(255, 216, 132);
+			next_b.setFillTextColor(0, 0, 0);
+
+		}
+		else
+		{
+			next_b.setFillRecktangelColor(149, 165, 58);
+			next_b.setFillTextColor(255, 255, 221);
+
+		}
+
+		if (next_b.pressed(event, mousePositon)) {
+
+			if (!window_background.loadFromFile("images/mode_window.png")) return 4;
+			background.setTexture(&window_background);
+
+			counter = 1;
+			score = 0;
+
+			word_one.setPosition(2000, 2000);
+			word_two.setPosition(2000, 2000);
+			word_three.setPosition(2000, 2000);
+			word_four.setPosition(2000, 2000);
+			word_five.setPosition(2000, 2000);
+			word_six.setPosition(2000, 2000);
+			word_seven.setPosition(2000, 2000);
+			word_eight.setPosition(2000, 2000);
+			word_nine.setPosition(2000, 2000);
+			word_ten.setPosition(2000, 2000);
+			back_b.setPosition(135, 83);
+			playermode_b.setPosition(317, 450);
+			guessed_b.setPosition(2000, 2000);
+			skip_b.setPosition(2000, 2000);
+			play_b.setPosition(2000, 2000);
+			rules_b.setPosition(2000, 2000);
+			ready_b.setPosition(2000, 2000);
+			guessed_b.setPosition(2000, 2000);
+			skip_b.setPosition(2000, 2000);
+			score_t.setPosition(2000, 2000);
+			next_b.setPosition(2000, 2000);
+
+		}
+
 		
 		window.clear();
 		window.draw(background);
@@ -741,6 +810,7 @@ int Start(RenderWindow& window)
 		word_nine.draw(window);
 		word_ten.draw(window);
 
+		next_b.draw(window);
 		play_b.draw(window);
 		rules_b.draw(window);
 		back_b.draw(window);
