@@ -10,7 +10,7 @@
 using namespace std;
 using namespace sf;
 
-void Words(text &a, string* WordsAndClues) {
+/*void Words(text& a, string* WordsAndClues) {
 	InputWordsAndClues(WordsAndClues);
 	string wordString = WordsAndClues[0];
 	text word(wordString);
@@ -28,7 +28,7 @@ void Timer(text& a, float duration, String timerString, Clock &timer) {
 		a.setString(timerString);
 	}
 }
-
+*/
 int main()
 {
 	// создание окна #1 (главное меню)
