@@ -961,3 +961,28 @@ int InputWordsAndClues_twenty(std::string* WordsAndCluesArr)
     return 0;
 }
 
+
+int InputWordsAndClues_1000(/*std::string WordsAndCluesArr*/vector<string>&Words, int random_chislo) {
+    srand(time(NULL));
+    int random = rand() % (323 - random_chislo + 1) + random_chislo;
+
+    const std::string fileName = "dictionary.txt";
+    std::ifstream File(fileName);
+    std::string str;
+
+    //int random;
+
+    while (!File.eof())
+    {
+        getline(File, str);
+        Words.push_back(str);
+    }
+    cout << Words[random];
+    //copy(Words.begin(), Words.end(), ostream_iterator<string>(cout, "\n"));
+    cout << endl;
+    return 0;
+
+}
+
+
+

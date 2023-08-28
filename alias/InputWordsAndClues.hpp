@@ -1,4 +1,4 @@
-#pragma once
+#include "Start.hpp"
 #ifndef _INPUTWORDSANDCLUES HPP_
 #define _INPUTWORDSANDCLUES HPP_
 #include <iostream>
