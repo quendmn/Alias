@@ -7,6 +7,7 @@
 #include "Text.hpp"
 #include "Button.hpp"
 #include "Start.hpp"
+
 using namespace std;
 using namespace sf;
 
@@ -92,7 +93,26 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	FriendshipWonText.setPosition(2000, 2000);
 	FriendshipWonText.setFillTextColor(0, 0, 0);
 	FriendshipWonText.setCharacterSize(64);
-		
+
+	int random_chislo1 = 10;
+	int random_chislo2 = 11;
+
+	std::vector <string>wordsTest;
+	std::string word;
+
+	/*InputWordsAndClues_1000(wordsTest, random_chislo1);
+	word = wordsTest[random];*/
+
+	text test1(one_s);
+	test1.setPosition(2000, 2000);
+	test1.setFillTextColor(0, 0, 0);
+	test1.setCharacterSize(100);
+
+	text test2(two_s);
+	test2.setPosition(2000, 2000);
+	test2.setFillTextColor(0, 0, 0);
+	test2.setCharacterSize(100);
+
 	text one(one_s);
 	one.setPosition(2000, 2000);
 	one.setFillTextColor(0, 0, 0);

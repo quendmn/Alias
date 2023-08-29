@@ -979,7 +979,7 @@ int InputWordsAndClues_1000(vector<string> &Words) {
     }
     //cout << Words[random];
     //copy(Words.begin(), Words.end(), ostream_iterator<string>(cout, "\n"));
-    //cout << endl;
+    cout << endl;
     return 0;
 
 }

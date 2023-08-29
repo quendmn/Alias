@@ -29,9 +29,6 @@
 //int InputWordsAndClues_nineteen(std::string* WordsAndCluesArr);
 //int InputWordsAndClues_twenty(std::string* WordsAndCluesArr);
 
-int InputWordsAndClues_1000(std::vector<std::string>&Words);
-int Random_generate(int* arr, int size);
-//int Image_Icon(Image icon, RenderWindow& window);
 #endif
 
 
