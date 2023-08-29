@@ -39,7 +39,8 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	
 	int playerOne_score = 0;
 	int playerTwo_score = 0;
-	
+	vector<string> Points{ "1", "2", "3", "4", "5", "6", "7", "8", "10", "11"};
+	vector<string> Results{ "  Player #1 won!","Player #2 won!" ,"Friendship won! :)" };
 	string one_s = "1";
 	string two_s = "2";
 	string three_s = "3";
@@ -55,14 +56,6 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	string PlayerTwoWon = "Player #2 won!";
 	string FriendshipWon = "Friendship won! :)";
 	
-	// создание массива случайных чисел
-	
-	
-	
-	// содание вектора для слов
-	
-	
-	
 	
 	text Word(Words[arr[0]]);
 	Word.setPosition(2000, 2000);
@@ -70,12 +63,12 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	Word.setCharacterSize(64);
 	
 	
-	text PlayerOneWonText(PlayerOneWon);
-	PlayerOneWonText.setPosition(2000, 2000);
-	PlayerOneWonText.setFillTextColor(0, 0, 0);
-	PlayerOneWonText.setCharacterSize(64);
+	text Winning_Text(Results[0]);
+	Winning_Text.setPosition(2000, 2000);
+	Winning_Text.setFillTextColor(0, 0, 0);
+	Winning_Text.setCharacterSize(64);
 	
-	text PlayerTwoWonText(PlayerTwoWon);
+	/*text PlayerTwoWonText(PlayerTwoWon);
 	PlayerTwoWonText.setPosition(2000, 2000);
 	PlayerTwoWonText.setFillTextColor(0, 0, 0);
 	PlayerTwoWonText.setCharacterSize(64);
@@ -83,7 +76,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	text FriendshipWonText(FriendshipWon);
 	FriendshipWonText.setPosition(2000, 2000);
 	FriendshipWonText.setFillTextColor(0, 0, 0);
-	FriendshipWonText.setCharacterSize(64);
+	FriendshipWonText.setCharacterSize(64);*/
 
 	
 
@@ -630,15 +623,17 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 				//вывод победителя
 				if (playerOne_score > playerTwo_score)
 				{
-					PlayerOneWonText.setPosition(507, 354);
+					Winning_Text.setPosition(507, 354);
 				}
 				if (playerOne_score < playerTwo_score)
 				{
-					PlayerTwoWonText.setPosition(507, 354);
+					Winning_Text.setString(Results[1]);
+					Winning_Text.setPosition(507, 354);
 				}
 				if (playerOne_score == playerTwo_score)
 				{
-					FriendshipWonText.setPosition(507, 354);
+					Winning_Text.setString(Results[2]);
+					Winning_Text.setPosition(507, 354);
 				}
 
 
@@ -839,15 +834,18 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 				//вывод победителя
 				if (playerOne_score > playerTwo_score)
 					{
-						PlayerOneWonText.setPosition(507, 354);
+					Winning_Text.setPosition(507, 354);
 					}
 				if (playerOne_score < playerTwo_score)
 					{
-						PlayerTwoWonText.setPosition(507, 354);
+					Winning_Text.setString(Results[1]);
+					Winning_Text.setPosition(507, 354);
+						
 					}
 				if (playerOne_score == playerTwo_score)
 					{
-						FriendshipWonText.setPosition(507, 354);
+					Winning_Text.setString(Results[2]);
+					Winning_Text.setPosition(507, 354);
 					}
 			}
 
@@ -916,9 +914,9 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 
 		Word.draw(window);
 
-		PlayerOneWonText.draw(window);
-		PlayerTwoWonText.draw(window);
-		FriendshipWonText.draw(window);
+		Winning_Text.draw(window);
+		/*PlayerTwoWonText.draw(window);
+		FriendshipWonText.draw(window);*/
 
 		
 
