@@ -375,6 +375,34 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			next_b.setPosition(2000, 2000);
 			Word.setPosition(2000, 2000);
 
+			one.setPosition(2000, 2000);
+
+			two.setPosition(2000, 2000);
+
+			three.setPosition(2000, 2000);
+
+			four.setPosition(2000, 2000);
+
+			five.setPosition(2000, 2000);
+
+			six.setPosition(2000, 2000);
+
+			seven.setPosition(2000, 2000);
+
+			eight.setPosition(2000, 2000);
+
+			nine.setPosition(2000, 2000);
+
+			ten.setPosition(2000, 2000);
+
+
+				PlayerOneWonText.setPosition(2000, 2000);
+
+				PlayerTwoWonText.setPosition(2000, 2000);
+
+				FriendshipWonText.setPosition(2000, 2000);
+
+
 		}
 
 		// кнопка Player vs player
