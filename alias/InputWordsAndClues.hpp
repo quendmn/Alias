@@ -29,6 +29,8 @@ int InputWordsAndClues_eighteen(std::string* WordsAndCluesArr);
 int InputWordsAndClues_nineteen(std::string* WordsAndCluesArr);
 int InputWordsAndClues_twenty(std::string* WordsAndCluesArr);
 
+int InputWordsAndClues_1000(vector<string>& Words, int random_chislo);
+
 #endif
 
 

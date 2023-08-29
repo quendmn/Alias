@@ -977,9 +977,9 @@ int InputWordsAndClues_1000(/*std::string WordsAndCluesArr*/vector<string>&Words
         getline(File, str);
         Words.push_back(str);
     }
-    cout << Words[random];
+    
     //copy(Words.begin(), Words.end(), ostream_iterator<string>(cout, "\n"));
-    cout << endl;
+
     return 0;
 
 }
