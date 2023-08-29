@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <sstream>
 #include <list>
@@ -397,15 +396,11 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			ten.setPosition(2000, 2000);
 
 
-			Winning_Text.setPosition(2000, 2000);
-			guessedTwo_b.setPosition(2000, 2000);
-
-
-				/*PlayerOneWonText.setPosition(2000, 2000);
+				PlayerOneWonText.setPosition(2000, 2000);
 
 				PlayerTwoWonText.setPosition(2000, 2000);
 
-				FriendshipWonText.setPosition(2000, 2000);*/
+				FriendshipWonText.setPosition(2000, 2000);
 
 
 		}
