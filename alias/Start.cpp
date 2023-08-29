@@ -52,9 +52,9 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	string nine_s = "9";
 	string ten_s = "10";
 	
-	string PlayerOneWon = "  Player #1 won!";
+	/*string PlayerOneWon = "  Player #1 won!";
 	string PlayerTwoWon = "Player #2 won!";
-	string FriendshipWon = "Friendship won! :)";
+	string FriendshipWon = "Friendship won! :)";*/
 	
 	
 	text Word(Words[arr[0]]);
