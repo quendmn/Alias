@@ -13,7 +13,7 @@
 using namespace std;
 using namespace sf;
 
-int Start(RenderWindow& window);
+int Start(RenderWindow& window, std::vector<string> Words, int *arr);
 
 
 #endif
