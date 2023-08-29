@@ -60,15 +60,19 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	
 	// содание вектора для слов
 	
-	string Word_one = Words[arr[0]];
-	string Word_two = Words[arr[1]];
-	string Word_three = Words[arr[2]];
-	string Word_four = Words[arr[3]];
-	string Word_five = Words[arr[4]];
-	string Word_six = Words[arr[5]];
+	string Word_1 = Words[arr[0]];
+	string Word_2 = Words[arr[1]];
+	string Word_3 = Words[arr[2]];
+	string Word_4 = Words[arr[3]];
+	string Word_5 = Words[arr[4]];
+	string Word_6 = Words[arr[5]];
+	string Word_7 = Words[arr[6]];
+	string Word_8 = Words[arr[7]];
+	string Word_9 = Words[arr[8]];
+	string Word_10 = Words[arr[9]];
 	
 	
-	text Word(Word_one);
+	text Word(Word_1);
 	Word.setPosition(2000, 2000);
 	Word.setFillTextColor(0, 0, 0);
 	Word.setCharacterSize(64);
@@ -701,213 +705,51 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			playerOne_score++;
 			if (counter == 2) 
 			{
-				Word.setString(Word_two);
-				
-
-
-				/*word_one.setPosition(2000, 2000);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);
-
-				word_two.setPosition(545, 498);*/
-
+				Word.setString(Word_2);
 			}
 			if (counter == 3)
 			{
-				Word.setString(Word_three);
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(2000, 2000);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);*/
-
-				//word_three.setPosition(545, 498);
+				Word.setString(Word_3);
+				
 			}
 			if (counter == 4)
 			{
-				Word.setString(Word_four);
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(2000, 2000);
-				word_three.setPosition(2000, 2000);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);
-
-				word_four.setPosition(545, 498);*/
+				Word.setString(Word_4);
+				
 			}
 			if (counter == 5)
 			{
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(2000, 2000);
-				word_three.setPosition(2000, 2000);
-				word_four.setPosition(2000, 2000);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);
-
-				word_five.setPosition(545, 498);*/
+				Word.setString(Word_5);
+				
 			}
 			if (counter == 6)
 			{
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(2000, 2000);
-				word_three.setPosition(2000, 2000);
-				word_four.setPosition(2000, 2000);
-				word_five.setPosition(2000, 2000);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);
-
-				word_six.setPosition(545, 498);*/
+				Word.setString(Word_6);
+				
 			}
 			if (counter == 7)
 			{
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(2000, 2000);
-				word_three.setPosition(2000, 2000);
-				word_four.setPosition(2000, 2000);
-				word_five.setPosition(2000, 2000);
-				word_six.setPosition(2000, 2000);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);
-
-				word_seven.setPosition(545, 498);*/
+				Word.setString(Word_7);
+				
 			}
 			if (counter == 8)
 			{
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(2000, 2000);
-				word_three.setPosition(2000, 2000);
-				word_four.setPosition(2000, 2000);
-				word_five.setPosition(2000, 2000);
-				word_six.setPosition(2000, 2000);
-				word_seven.setPosition(2000, 2000);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);
-
-				word_eight.setPosition(545, 498);*/
+				Word.setString(Word_8);
+				
 			}
 			if (counter == 9)
 			{
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(2000, 2000);
-				word_three.setPosition(2000, 2000);
-				word_four.setPosition(2000, 2000);
-				word_five.setPosition(2000, 2000);
-				word_six.setPosition(2000, 2000);
-				word_seven.setPosition(2000, 2000);
-				word_eight.setPosition(2000, 2000);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);
-
-				word_nine.setPosition(545, 498);
-			}*/
+				Word.setString(Word_9);
+				
+			}
 			if (counter == 10)
 			{
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(2000, 2000);
-				word_three.setPosition(2000, 2000);
-				word_four.setPosition(2000, 2000);
-				word_five.setPosition(2000, 2000);
-				word_six.setPosition(2000, 2000);
-				word_seven.setPosition(2000, 2000);
-				word_eight.setPosition(2000, 2000);
-				word_nine.setPosition(2000, 2000);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);
-
-				word_ten.setPosition(545, 498);*/
+				Word.setString(Word_10);
+				
 			}
 			if (counter == 11)
 			{
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(2000, 2000);
-				word_three.setPosition(2000, 2000);
-				word_four.setPosition(2000, 2000);
-				word_five.setPosition(2000, 2000);
-				word_six.setPosition(2000, 2000);
-				word_seven.setPosition(2000, 2000);
-				word_eight.setPosition(2000, 2000);
-				word_nine.setPosition(2000, 2000);
-				word_ten.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);*/
-
+				
 				if (!window_background.loadFromFile("images/ForPlayerTwo_window.png")) return 4;
 				background.setTexture(&window_background);
 
@@ -1331,207 +1173,44 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			counter++;
 			if (counter == 2)
 			{
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(545, 498);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);*/
+				Word.setString(Word_2);
 			}
 			if (counter == 3)
 			{
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(2000, 2000);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);
-
-				word_three.setPosition(545, 498);*/
+				Word.setString(Word_3);
 			}
 			if (counter == 4)
 			{
-				/*word_one.setPosition(2000, 2000);
-				word_two.setPosition(2000, 2000);
-				word_three.setPosition(2000, 2000);
-				word_eleven.setPosition(2000, 2000);
-				word_twelwe.setPosition(2000, 2000);
-				word_thirteen.setPosition(2000, 2000);
-				word_fourteen.setPosition(2000, 2000);
-				word_fifteen.setPosition(2000, 2000);
-				word_sixteen.setPosition(2000, 2000);
-				word_seventeen.setPosition(2000, 2000);
-				word_eighteen.setPosition(2000, 2000);
-				word_nineteen.setPosition(2000, 2000);
-				word_twenty.setPosition(2000, 2000);
-
-				word_four.setPosition(545, 498);*/
+				Word.setString(Word_4);
 			}
 			if (counter == 5)
 				{
-					/*word_one.setPosition(2000, 2000);
-					word_two.setPosition(2000, 2000);
-					word_three.setPosition(2000, 2000);
-					word_four.setPosition(2000, 2000);
-					word_eleven.setPosition(2000, 2000);
-					word_twelwe.setPosition(2000, 2000);
-					word_thirteen.setPosition(2000, 2000);
-					word_fourteen.setPosition(2000, 2000);
-					word_fifteen.setPosition(2000, 2000);
-					word_sixteen.setPosition(2000, 2000);
-					word_seventeen.setPosition(2000, 2000);
-					word_eighteen.setPosition(2000, 2000);
-					word_nineteen.setPosition(2000, 2000);
-					word_twenty.setPosition(2000, 2000);
-
-					word_five.setPosition(545, 498);*/
+				Word.setString(Word_5);
 				}
 			if (counter == 6)
 				{
-					/*word_one.setPosition(2000, 2000);
-					word_two.setPosition(2000, 2000);
-					word_three.setPosition(2000, 2000);
-					word_four.setPosition(2000, 2000);
-					word_five.setPosition(2000, 2000);
-					word_eleven.setPosition(2000, 2000);
-					word_twelwe.setPosition(2000, 2000);
-					word_thirteen.setPosition(2000, 2000);
-					word_fourteen.setPosition(2000, 2000);
-					word_fifteen.setPosition(2000, 2000);
-					word_sixteen.setPosition(2000, 2000);
-					word_seventeen.setPosition(2000, 2000);
-					word_eighteen.setPosition(2000, 2000);
-					word_nineteen.setPosition(2000, 2000);
-					word_twenty.setPosition(2000, 2000);
-
-					word_six.setPosition(545, 498);*/
+				Word.setString(Word_6);
 				}
 			if (counter == 7)
 				{
-					/*word_one.setPosition(2000, 2000);
-					word_two.setPosition(2000, 2000);
-					word_three.setPosition(2000, 2000);
-					word_four.setPosition(2000, 2000);
-					word_five.setPosition(2000, 2000);
-					word_six.setPosition(2000, 2000);
-					word_eleven.setPosition(2000, 2000);
-					word_twelwe.setPosition(2000, 2000);
-					word_thirteen.setPosition(2000, 2000);
-					word_fourteen.setPosition(2000, 2000);
-					word_fifteen.setPosition(2000, 2000);
-					word_sixteen.setPosition(2000, 2000);
-					word_seventeen.setPosition(2000, 2000);
-					word_eighteen.setPosition(2000, 2000);
-					word_nineteen.setPosition(2000, 2000);
-					word_twenty.setPosition(2000, 2000);
-
-					word_seven.setPosition(545, 498);*/
+				Word.setString(Word_7);
 				}
 			if (counter == 8)
 				{
-					/*word_one.setPosition(2000, 2000);
-					word_two.setPosition(2000, 2000);
-					word_three.setPosition(2000, 2000);
-					word_four.setPosition(2000, 2000);
-					word_five.setPosition(2000, 2000);
-					word_six.setPosition(2000, 2000);
-					word_seven.setPosition(2000, 2000);
-					word_eleven.setPosition(2000, 2000);
-					word_twelwe.setPosition(2000, 2000);
-					word_thirteen.setPosition(2000, 2000);
-					word_fourteen.setPosition(2000, 2000);
-					word_fifteen.setPosition(2000, 2000);
-					word_sixteen.setPosition(2000, 2000);
-					word_seventeen.setPosition(2000, 2000);
-					word_eighteen.setPosition(2000, 2000);
-					word_nineteen.setPosition(2000, 2000);
-					word_twenty.setPosition(2000, 2000);
-
-					word_eight.setPosition(545, 498);*/
+				Word.setString(Word_8);
 				}
 			if (counter == 9)
 				{
-					/*word_one.setPosition(2000, 2000);
-					word_two.setPosition(2000, 2000);
-					word_three.setPosition(2000, 2000);
-					word_four.setPosition(2000, 2000);
-					word_five.setPosition(2000, 2000);
-					word_six.setPosition(2000, 2000);
-					word_seven.setPosition(2000, 2000);
-					word_eight.setPosition(2000, 2000);
-					word_eleven.setPosition(2000, 2000);
-					word_twelwe.setPosition(2000, 2000);
-					word_thirteen.setPosition(2000, 2000);
-					word_fourteen.setPosition(2000, 2000);
-					word_fifteen.setPosition(2000, 2000);
-					word_sixteen.setPosition(2000, 2000);
-					word_seventeen.setPosition(2000, 2000);
-					word_eighteen.setPosition(2000, 2000);
-					word_nineteen.setPosition(2000, 2000);
-					word_twenty.setPosition(2000, 2000);
-
-					word_nine.setPosition(545, 498);*/
+				Word.setString(Word_9);
 				}
 			if (counter == 10)
 				{
-					/*word_one.setPosition(2000, 2000);
-					word_two.setPosition(2000, 2000);
-					word_three.setPosition(2000, 2000);
-					word_four.setPosition(2000, 2000);
-					word_five.setPosition(2000, 2000);
-					word_six.setPosition(2000, 2000);
-					word_seven.setPosition(2000, 2000);
-					word_eight.setPosition(2000, 2000);
-					word_nine.setPosition(2000, 2000);
-					word_eleven.setPosition(2000, 2000);
-					word_twelwe.setPosition(2000, 2000);
-					word_thirteen.setPosition(2000, 2000);
-					word_fourteen.setPosition(2000, 2000);
-					word_fifteen.setPosition(2000, 2000);
-					word_sixteen.setPosition(2000, 2000);
-					word_seventeen.setPosition(2000, 2000);
-					word_eighteen.setPosition(2000, 2000);
-					word_nineteen.setPosition(2000, 2000);
-					word_twenty.setPosition(2000, 2000);
-
-					word_ten.setPosition(545, 498);*/
-
+				Word.setString(Word_10);
 				}
 
 			if (counter == 11)
 			{
-				/*word_one.setPosition(2000, 2000);
-					word_two.setPosition(2000, 2000);
-					word_three.setPosition(2000, 2000);
-					word_four.setPosition(2000, 2000);
-					word_five.setPosition(2000, 2000);
-					word_six.setPosition(2000, 2000);
-					word_seven.setPosition(2000, 2000);
-					word_eight.setPosition(2000, 2000);
-					word_nine.setPosition(2000, 2000);
-					word_ten.setPosition(2000, 2000);
-					word_eleven.setPosition(2000, 2000);
-					word_twelwe.setPosition(2000, 2000);
-					word_thirteen.setPosition(2000, 2000);
-					word_fourteen.setPosition(2000, 2000);
-					word_fifteen.setPosition(2000, 2000);
-					word_sixteen.setPosition(2000, 2000);
-					word_seventeen.setPosition(2000, 2000);
-					word_eighteen.setPosition(2000, 2000);
-					word_nineteen.setPosition(2000, 2000);
-					word_twenty.setPosition(2000, 2000);*/
+				
 
 				if (!window_background.loadFromFile("images/ForPlayerTwo_window.png")) return 4;
 				background.setTexture(&window_background);
@@ -1903,11 +1582,11 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			play_b.setPosition(2000, 2000);
 			ready_b.setPosition(2000, 2000);
 
-			}
 		}
+		
 
 		// кнопка next_b
-		if (next_b.pointedMouse(event, mousePositon)) {
+		/*if (next_b.pointedMouse(event, mousePositon)){
 
 			next_b.setFillRecktangelColor(255, 216, 132);
 			next_b.setFillTextColor(0, 0, 0);
@@ -1918,7 +1597,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			next_b.setFillRecktangelColor(149, 165, 58);
 			next_b.setFillTextColor(255, 255, 221);
 
-		}
+		}*/
 
 		/*if (next_b.pressed(event, mousePositon)) {
 
@@ -2021,9 +1700,6 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 		//wordButton.draw(window);
 		//time_text.draw(window);
 		//word.draw(window);
-		window.display();
+		window.display();}
+		return 0;
 	}
-	
-	return 0;
-
-}
