@@ -1665,27 +1665,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 		PlayerTwoWonText.draw(window);
 		FriendshipWonText.draw(window);
 
-		/*word_one.draw(window);
-		word_two.draw(window);
-		word_three.draw(window);
-		word_four.draw(window);
-		word_five.draw(window);
-		word_six.draw(window);
-		word_seven.draw(window);
-		word_eight.draw(window);
-		word_nine.draw(window);
-		word_ten.draw(window);
-		word_eleven.draw(window);
-		word_twelwe.draw(window);
-		word_thirteen.draw(window);
-		word_fourteen.draw(window);
-		word_fifteen.draw(window);
-		word_sixteen.draw(window);
-		word_seventeen.draw(window);
-		word_eighteen.draw(window);
-		word_nineteen.draw(window);
-		word_twenty.draw(window);*/
-
+		
 
 		next_b.draw(window);
 		play_b.draw(window);
