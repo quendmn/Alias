@@ -94,52 +94,52 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	text one(one_s);
 	one.setPosition(2000, 2000);
 	one.setFillTextColor(0, 0, 0);
-	one.setCharacterSize(100);
-	
+	one.setCharacterSize(64);
+
 	text two(two_s);
-	one.setPosition(2000, 2000);
-	one.setFillTextColor(0, 0, 0);
-	one.setCharacterSize(100);
-	
+	two.setPosition(2000, 2000);
+	two.setFillTextColor(0, 0, 0);
+	two.setCharacterSize(64);
+
 	text three(three_s);
-	one.setPosition(2000, 2000);
-	one.setFillTextColor(0, 0, 0);
-	one.setCharacterSize(100);
-	
+	three.setPosition(2000, 2000);
+	three.setFillTextColor(0, 0, 0);
+	three.setCharacterSize(64);
+
 	text four(four_s);
-	one.setPosition(2000, 2000);
-	one.setFillTextColor(0, 0, 0);
-	one.setCharacterSize(100);
-	
+	four.setPosition(2000, 2000);
+	four.setFillTextColor(0, 0, 0);
+	four.setCharacterSize(64);
+
 	text five(five_s);
-	one.setPosition(2000, 2000);
-	one.setFillTextColor(0, 0, 0);
-	one.setCharacterSize(100);
-	
+	five.setPosition(2000, 2000);
+	five.setFillTextColor(0, 0, 0);
+	five.setCharacterSize(64);
+
 	text six(six_s);
-	one.setPosition(2000, 2000);
-	one.setFillTextColor(0, 0, 0);
-	one.setCharacterSize(100);
-	
+	six.setPosition(2000, 2000);
+	six.setFillTextColor(0, 0, 0);
+	six.setCharacterSize(64);
+
 	text seven(seven_s);
-	one.setPosition(2000, 2000);
-	one.setFillTextColor(0, 0, 0);
-	one.setCharacterSize(100);
-	
+	seven.setPosition(2000, 2000);
+	seven.setFillTextColor(0, 0, 0);
+	seven.setCharacterSize(64);
+
 	text eight(eight_s);
-	one.setPosition(2000, 2000);
-	one.setFillTextColor(0, 0, 0);
-	one.setCharacterSize(80);
-	
+	eight.setPosition(2000, 2000);
+	eight.setFillTextColor(0, 0, 0);
+	eight.setCharacterSize(64);
+
 	text nine(nine_s);
-	one.setPosition(2000, 2000);
-	one.setFillTextColor(0, 0, 0);
-	one.setCharacterSize(100);
-	
+	nine.setPosition(2000, 2000);
+	nine.setFillTextColor(0, 0, 0);
+	nine.setCharacterSize(64);
+
 	text ten(ten_s);
-	one.setPosition(2000, 2000);
-	one.setFillTextColor(0, 0, 0);
-	one.setCharacterSize(100);
+	ten.setPosition(2000, 2000);
+	ten.setFillTextColor(0, 0, 0);
+	ten.setCharacterSize(64);
 	
 
 	// создание переменных для вывода слов и подсказок
@@ -375,6 +375,34 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			next_b.setPosition(2000, 2000);
 			Word.setPosition(2000, 2000);
 
+			one.setPosition(2000, 2000);
+
+			two.setPosition(2000, 2000);
+
+			three.setPosition(2000, 2000);
+
+			four.setPosition(2000, 2000);
+
+			five.setPosition(2000, 2000);
+
+			six.setPosition(2000, 2000);
+
+			seven.setPosition(2000, 2000);
+
+			eight.setPosition(2000, 2000);
+
+			nine.setPosition(2000, 2000);
+
+			ten.setPosition(2000, 2000);
+
+
+				PlayerOneWonText.setPosition(2000, 2000);
+
+				PlayerTwoWonText.setPosition(2000, 2000);
+
+				FriendshipWonText.setPosition(2000, 2000);
+
+
 		}
 
 		// кнопка Player vs player
@@ -525,7 +553,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			
 			if (counter == 21)
 			{
-				
+				Word.setPosition(2000, 2000);
 				if (!window_background.loadFromFile("images/statistics_window.png")) return 4;
 				background.setTexture(&window_background);
 
@@ -536,6 +564,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 				rules_b.setPosition(2000, 2000);
 				play_b.setPosition(2000, 2000);
 				ready_b.setPosition(2000, 2000);
+
 
 				//вывод очков второго игрока
 				if(playerTwo_score == 1)
