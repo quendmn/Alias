@@ -39,7 +39,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	
 	int playerOne_score = 0;
 	int playerTwo_score = 0;
-	vector<string> Points{ "1", "2", "3", "4", "5", "6", "7", "8", "10", "11"};
+	//vector<string> Points{ "1", "2", "3", "4", "5", "6", "7", "8", "10", "11"};
 	vector<string> Results{ "  Player #1 won!","Player #2 won!" ,"Friendship won! :)" };
 	string one_s = "1";
 	string two_s = "2";
