@@ -51,6 +51,17 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	string eight_s = "8";
 	string nine_s = "9";
 	string ten_s = "10";
+
+	text scoreOne(Points[0]);
+	scoreOne.setPosition(2000, 2000);
+	scoreOne.setFillTextColor(0, 0, 0);
+	scoreOne.setCharacterSize(64);
+	std::string textScoreOne;
+	text scoreTwo(Points[0]);
+	scoreTwo.setPosition(2000, 2000);
+	scoreTwo.setFillTextColor(0, 0, 0);
+	scoreTwo.setCharacterSize(64);
+	std::string textScoreTwo;
 	
 	/*string PlayerOneWon = "  Player #1 won!";
 	string PlayerTwoWon = "Player #2 won!";
@@ -568,88 +579,12 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 				ready_b.setPosition(2000, 2000);
 
 				//вывод очков второго игрока
-				if(playerTwo_score == 1)
-				{
-					one.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 2)
-				{
-					two.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 3)
-				{
-					three.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 4)
-				{
-					four.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 5)
-				{
-					five.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 6)
-				{
-					six.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 7)
-				{
-					seven.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 8)
-				{
-					eight.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 9)
-				{
-					nine.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 10)
-				{
-					ten.setPosition(1190, 607);
-				}
+				scoreTwo.setString(std::to_string(playerTwo_score));
+				scoreTwo.setPosition(1190, 607);
 
 				// вывод очков первого игрока
-				if (playerOne_score == 1)
-				{
-					one.setPosition(1190, 507);
-				}
-				if (playerOne_score == 2)
-				{
-					two.setPosition(1190, 507);
-				}
-				if (playerOne_score == 3)
-				{
-					three.setPosition(1190, 507);
-				}
-				if (playerOne_score == 4)
-				{
-					four.setPosition(1190, 507);
-				}
-				if (playerOne_score == 5)
-				{
-					five.setPosition(1190, 507);
-				}
-				if (playerOne_score == 6)
-				{
-					six.setPosition(1190, 507);
-				}
-				if (playerOne_score == 7)
-				{
-					seven.setPosition(1190, 507);
-				}
-				if (playerOne_score == 8)
-				{
-					eight.setPosition(1190, 507);
-				}
-				if (playerOne_score == 9)
-				{
-					nine.setPosition(1190, 507);
-				}
-				if (playerOne_score == 10)
-				{
-					ten.setPosition(1190, 507);
-				}
+				scoreOne.setString(std::to_string(playerOne_score));
+				scoreOne.setPosition(1190, 507);
 				//вывод победителя
 				if (playerOne_score > playerTwo_score)
 				{
@@ -779,88 +714,12 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 				ready_b.setPosition(2000, 2000);
 
 				//вывод очков второго игрока
-				if (playerTwo_score == 1)
-				{
-					one.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 2)
-				{
-					two.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 3)
-				{
-					three.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 4)
-				{
-					four.setPosition(1190, 607);
-				}
-				if (playerTwo_score == 5)
-					{
-						five.setPosition(1190, 607);
-					}
-				if (playerTwo_score == 6)
-					{
-						six.setPosition(1190, 607);
-					}
-				if (playerTwo_score == 7)
-					{
-						seven.setPosition(1190, 607);
-					}
-				if (playerTwo_score == 8)
-					{
-						eight.setPosition(1190, 607);
-					}
-				if (playerTwo_score == 9)
-					{
-						nine.setPosition(1190, 607);
-					}
-				if (playerTwo_score == 10)
-					{
-						ten.setPosition(1190, 607);
-					}
+				scoreTwo.setString(std::to_string(playerTwo_score));
+				scoreTwo.setPosition(1190, 607);
 
 				// вывод очков первого игрока
-				if (playerOne_score == 1)
-					{
-						one.setPosition(1190, 507);
-					}
-				if (playerOne_score == 2)
-					{
-						two.setPosition(1190, 507);
-					}
-				if (playerOne_score == 3)
-					{
-						three.setPosition(1190, 507);
-					}
-				if (playerOne_score == 4)
-					{
-						four.setPosition(1190, 507);
-					}
-				if (playerOne_score == 5)
-					{
-						five.setPosition(1190, 507);
-					}
-				if (playerOne_score == 6)
-					{
-						six.setPosition(1190, 507);
-					}
-				if (playerOne_score == 7)
-					{
-						seven.setPosition(1190, 507);
-					}
-				if (playerOne_score == 8)
-					{
-						eight.setPosition(1190, 507);
-					}
-				if (playerOne_score == 9)
-					{
-						nine.setPosition(1190, 507);
-					}
-				if (playerOne_score == 10)
-					{
-						ten.setPosition(1190, 507);
-					}
+				scoreOne.setString(std::to_string(playerOne_score));
+				scoreOne.setPosition(1190, 507);
 				//вывод победителя
 				if (playerOne_score > playerTwo_score)
 					{
@@ -945,6 +804,9 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 		Word.draw(window);
 
 		Winning_Text.draw(window);
+		scoreTwo.draw(window);
+		scoreOne.draw(window);
+
 		/*PlayerTwoWonText.draw(window);
 		FriendshipWonText.draw(window);*/
 
