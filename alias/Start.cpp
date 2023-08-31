@@ -11,16 +11,20 @@
 using namespace std;
 using namespace sf;
 
-// добавить дубликаты очков (1-1 2-2)
-// кнопка back::убрать лишние элементы с главного экрана
-// 13 слово появляется над 12 пофиксить
-// размер текста кол-ва очков ^
-
-int Start(RenderWindow& window, std::vector<string> Words, int *arr)
+//bool Start(RenderWindow& window, std::vector<string> Words, int *arr)
+bool Start()
 {
+	// создание окна #1 (главное меню)
+	RenderWindow window(sf::VideoMode(1440, 900), "Alias");
+	std::vector<string> Words;
+	int size = 20;
+	int* arr = new int[size];
+	InputWordsAndClues_1000(Words);
+	Random_generate(arr, size);
+
 	RectangleShape background(Vector2f(1440, 900));
 	Texture window_background;
-	if (!window_background.loadFromFile("images/main_window.png")) return 4;
+	if (!window_background.loadFromFile("images/main_window.png")) return false;
 	background.setTexture(&window_background);
 	
 	// создание иконки
@@ -28,10 +32,9 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	Image icon;
 	if (!icon.loadFromFile("images/icon.png"))
 	{
-		return 1;
+		return false;
 	}
 	window.setIcon(32, 32, icon.getPixelsPtr());
-	//Image_Icon(icon, window);
 	
 	// вывод количества очков
 	Font font;
@@ -55,12 +58,12 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	text scoreOne(Points[0]);
 	scoreOne.setPosition(2000, 2000);
 	scoreOne.setFillTextColor(0, 0, 0);
-	scoreOne.setCharacterSize(64);
+	scoreOne.setCharacterSize(48);
 	std::string textScoreOne;
 	text scoreTwo(Points[0]);
 	scoreTwo.setPosition(2000, 2000);
 	scoreTwo.setFillTextColor(0, 0, 0);
-	scoreTwo.setCharacterSize(64);
+	scoreTwo.setCharacterSize(48);
 	std::string textScoreTwo;
 	
 	/*string PlayerOneWon = "  Player #1 won!";
@@ -79,20 +82,10 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	Winning_Text.setFillTextColor(0, 0, 0);
 	Winning_Text.setCharacterSize(64);
 	
-	
-
-	
-
-
-	
-	
 
 	// создание переменных для вывода слов и подсказок
 	// во втором массиве меняется значение перемнной neededline в функции
 	int counter = 1;
-
-	
-
 
 	// создание кнопки Play (::главное меню)
 	Button play_b(500, 70, "                  Play");
@@ -153,12 +146,19 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	skip_b.setPosition(2000, 2000);
 	skip_b.setCharacterSize(48);
 
-	// создание кнопки next round
-	Button next_b(517, 70, "             next round");
+	// создание кнопки next 
+	Button next_b(360, 65, "           next");
 	next_b.setFillRecktangelColor(149, 165, 58);
 	next_b.setFillTextColor(255, 255, 221);
 	next_b.setPosition(2000, 2000);
 	next_b.setCharacterSize(48);
+
+	// создание кнопки exit 
+	Button exit_b(360, 65, "           exit");
+	exit_b.setFillRecktangelColor(149, 165, 58);
+	exit_b.setFillTextColor(255, 255, 221);
+	exit_b.setPosition(2000, 2000);
+	exit_b.setCharacterSize(48);
 
 
 
@@ -195,6 +195,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 				window.close();
 
 		}
+
 		/*//создание таймера (изначальный вывод за пределы экрана)
 
 		Time time = timer.restart();
@@ -251,7 +252,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 
 		if (play_b.pressed(event, mousePositon)) {
 
-			if (!window_background.loadFromFile("images/mode_window.png")) return 4;
+			if (!window_background.loadFromFile("images/mode_window.png")) return false;
 			background.setTexture(&window_background);
 
 			back_b.setPosition(135, 85);
@@ -276,7 +277,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 
 		if (rules_b.pressed(event, mousePositon)) {
 
-			if (!window_background.loadFromFile("images/rules_window.png")) return 4;
+			if (!window_background.loadFromFile("images/rules_window.png")) return false;
 			background.setTexture(&window_background);
 
 			back_b.setPosition(135, 85);
@@ -301,7 +302,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 
 		if (back_b.pressed(event, mousePositon)) {
 			
-			if (!window_background.loadFromFile("images/main_window.png")) return 4;
+			if (!window_background.loadFromFile("images/main_window.png")) return false;
 			background.setTexture(&window_background);
 
 			counter = 1;
@@ -323,10 +324,6 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			scoreTwo.setPosition(2000, 2000);
 			Winning_Text.setPosition(2000, 2000);
 
-
-			
-
-
 		}
 
 		// кнопка Player vs player
@@ -346,7 +343,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 
 		if (playermode_b.pressed(event, mousePositon)) {
 
-			if (!window_background.loadFromFile("images/player_game_window.png")) return 4;
+			if (!window_background.loadFromFile("images/player_game_window.png")) return false;
 			background.setTexture(&window_background);
 
 			back_b.setPosition(135, 85);
@@ -377,7 +374,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 
 		if (ready_b.pressed(event, mousePositon)) {
 
-			if (!window_background.loadFromFile("images/ForPlayerOne_window.png")) return 4;
+			if (!window_background.loadFromFile("images/ForPlayerOne_window.png")) return false;
 			background.setTexture(&window_background);
 
 			Word.setPosition(600, 498);
@@ -425,9 +422,10 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			if (counter == 8)Word.setString(Words[arr[7]]);
 			if (counter == 9)Word.setString(Words[arr[8]]);
 			if (counter == 10)Word.setString(Words[arr[9]]);
+
 			if (counter == 11)
 			{
-				if (!window_background.loadFromFile("images/ForPlayerTwo_window.png")) return 4;
+				if (!window_background.loadFromFile("images/ForPlayerTwo_window.png")) return false;
 				background.setTexture(&window_background);
 
 				Word.setString(Words[arr[10]]);
@@ -478,7 +476,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			if (counter == 21)
 			{
 				Word.setPosition(2000, 2000);
-				if (!window_background.loadFromFile("images/statistics_window.png")) return 4;
+				if (!window_background.loadFromFile("images/statistics_window.png")) return false;
 				background.setTexture(&window_background);
 
 				guessedOne_b.setPosition(2000, 2000);
@@ -512,7 +510,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 					Winning_Text.setPosition(507, 354);
 				}
 
-
+				next_b.setPosition(4, 750);
 
 			}
 
@@ -536,6 +534,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 		}
 		else
 		{
+
 			skip_b.setFillRecktangelColor(149, 165, 58);
 			skip_b.setFillTextColor(255, 255, 221);
 
@@ -545,48 +544,19 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 		if (skip_b.pressed(event, mousePositon)) {
 
 			counter++;
-			if (counter == 2)
-			{
-				Word.setString(Words[arr[1]]);
-			}
-			if (counter == 3)
-			{
-				Word.setString(Words[arr[2]]);
-			}
-			if (counter == 4)
-			{
-				Word.setString(Words[arr[3]]);
-			}
-			if (counter == 5)
-				{
-				Word.setString(Words[arr[4]]);
-				}
-			if (counter == 6)
-				{
-				Word.setString(Words[arr[5]]);
-				}
-			if (counter == 7)
-				{
-				Word.setString(Words[arr[6]]);
-				}
-			if (counter == 8)
-				{
-				Word.setString(Words[arr[7]]);
-				}
-			if (counter == 9)
-				{
-				Word.setString(Words[arr[8]]);
-				}
-			if (counter == 10)
-				{
-				Word.setString(Words[arr[9]]);
-				}
-
+			if (counter == 2)Word.setString(Words[arr[1]]);
+			if (counter == 3)Word.setString(Words[arr[2]]);
+			if (counter == 4)Word.setString(Words[arr[3]]);
+			if (counter == 5)Word.setString(Words[arr[4]]);
+			if (counter == 6)Word.setString(Words[arr[5]]);
+			if (counter == 7)Word.setString(Words[arr[6]]);
+			if (counter == 8)Word.setString(Words[arr[7]]);
+			if (counter == 9)Word.setString(Words[arr[8]]);
+			if (counter == 10)Word.setString(Words[arr[9]]);
 			if (counter == 11)
 			{
-				
-
-				if (!window_background.loadFromFile("images/ForPlayerTwo_window.png")) return 4;
+			
+				if (!window_background.loadFromFile("images/ForPlayerTwo_window.png")) return false;
 				background.setTexture(&window_background);
 
 				Word.setString(Words[arr[10]]);
@@ -613,7 +583,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			{
 				
 
-				if (!window_background.loadFromFile("images/statistics_window.png")) return 4;
+				if (!window_background.loadFromFile("images/statistics_window.png")) return false;
 				background.setTexture(&window_background);
 				Word.setPosition(2000, 2000);
 				guessedOne_b.setPosition(2000, 2000);
@@ -647,8 +617,11 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 					Winning_Text.setString(Results[2]);
 					Winning_Text.setPosition(507, 354);
 					}
-			}
 
+				next_b.setPosition(495, 750);
+
+			}
+			
 			playermode_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
@@ -658,7 +631,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 		
 
 		// кнопка next_b
-		/*if (next_b.pointedMouse(event, mousePositon)){
+		if (next_b.pointedMouse(event, mousePositon)){
 
 			next_b.setFillRecktangelColor(255, 216, 132);
 			next_b.setFillTextColor(0, 0, 0);
@@ -669,49 +642,80 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			next_b.setFillRecktangelColor(149, 165, 58);
 			next_b.setFillTextColor(255, 255, 221);
 
-		}*/
+		}
 
-		/*if (next_b.pressed(event, mousePositon)) {
+		if (next_b.pressed(event, mousePositon)) {
 
-			if (!window_background.loadFromFile("images/mode_window.png")) return 4;
+			if (!window_background.loadFromFile("images/theEnd_window.png")) return false;
 			background.setTexture(&window_background);
 
-			counter = 1;
-			score = 0;
-
-			
 
 
-			back_b.setPosition(135, 83);
-			playermode_b.setPosition(317, 450);
-			guessed_b.setPosition(2000, 2000);
+			back_b.setPosition(2000, 2000);
+			playermode_b.setPosition(2000, 2000);
+			guessedOne_b.setPosition(2000, 2000);
 			skip_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
 			rules_b.setPosition(2000, 2000);
 			ready_b.setPosition(2000, 2000);
-			guessed_b.setPosition(2000, 2000);
+			guessedTwo_b.setPosition(2000, 2000);
 			skip_b.setPosition(2000, 2000);
-			score_t.setPosition(2000, 2000);
+			scoreOne.setPosition(2000, 2000);
+			scoreTwo.setPosition(2000,2000);
+			Winning_Text.setPosition(2000, 2000);
 			next_b.setPosition(2000, 2000);
 
-		}*/
+		}
 
+
+		// кнопка exit_b
+		if (exit_b.pointedMouse(event, mousePositon)) {
+
+			exit_b.setFillRecktangelColor(255, 216, 132);
+			exit_b.setFillTextColor(0, 0, 0);
+
+		}
+		else
+		{
+			exit_b.setFillRecktangelColor(149, 165, 58);
+			exit_b.setFillTextColor(255, 255, 221);
+
+		}
+
+		if (exit_b.pressed(event, mousePositon)) {
+
+			
+
+
+
+			back_b.setPosition(2000, 2000);
+			playermode_b.setPosition(2000, 2000);
+			guessedOne_b.setPosition(2000, 2000);
+			skip_b.setPosition(2000, 2000);
+			play_b.setPosition(2000, 2000);
+			rules_b.setPosition(2000, 2000);
+			ready_b.setPosition(2000, 2000);
+			guessedTwo_b.setPosition(2000, 2000);
+			skip_b.setPosition(2000, 2000);
+			scoreOne.setPosition(2000, 2000);
+			scoreTwo.setPosition(2000, 2000);
+			Winning_Text.setPosition(2000, 2000);
+			next_b.setPosition(2000, 2000);
+
+		}
 		
+		if (Keyboard::isKeyPressed(Keyboard::Tab)) { return true; } //если таб, то перезагружаем игру
+		if (Keyboard::isKeyPressed(Keyboard::Escape)) { return false; } //если эскейп, то выходим из игры
+
 		window.clear();
 		window.draw(background);
 
-		
-
-
+	
 		Word.draw(window);
 
 		Winning_Text.draw(window);
 		scoreTwo.draw(window);
 		scoreOne.draw(window);
-
-		
-
-		
 
 		next_b.draw(window);
 		play_b.draw(window);
@@ -723,9 +727,14 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 		guessedTwo_b.draw(window);
 		skip_b.draw(window);
 
-		//wordButton.draw(window);
-		//time_text.draw(window);
-		//word.draw(window);
-		window.display();}
-		return 0;
+		window.display();
+}
+delete[] arr;
 	}
+
+void gameRunning()
+{
+	if (Start()) {
+		gameRunning();
+	}
+}
