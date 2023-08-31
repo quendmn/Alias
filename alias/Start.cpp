@@ -510,7 +510,7 @@ bool Start()
 					Winning_Text.setPosition(507, 354);
 				}
 
-				next_b.setPosition(4, 750);
+				next_b.setPosition(540, 750);
 
 			}
 

@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.hpp" />
+    <ClInclude Include="GameButtons.hpp" />
     <ClInclude Include="InputWordsAndClues.hpp" />
     <ClInclude Include="Start.hpp" />
     <ClInclude Include="Text.hpp" />
