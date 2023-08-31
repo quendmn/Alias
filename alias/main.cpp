@@ -15,7 +15,7 @@ int main()
 
 	Start(window, Words, arr);
 
-	
+	delete[] arr;
 	return 0;
 }
 

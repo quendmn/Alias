@@ -700,16 +700,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 		window.clear();
 		window.draw(background);
 
-		/*one.draw(window);
-		two.draw(window);
-		three.draw(window);
-		four.draw(window);
-		five.draw(window);
-		six.draw(window);
-		seven.draw(window);
-		eight.draw(window);
-		nine.draw(window);
-		ten.draw(window);*/
+		
 
 
 		Word.draw(window);
@@ -718,8 +709,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 		scoreTwo.draw(window);
 		scoreOne.draw(window);
 
-		/*PlayerTwoWonText.draw(window);
-		FriendshipWonText.draw(window);*/
+		
 
 		
 
