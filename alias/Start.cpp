@@ -39,9 +39,9 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	
 	int playerOne_score = 0;
 	int playerTwo_score = 0;
-	//vector<string> Points{ "1", "2", "3", "4", "5", "6", "7", "8", "10", "11"};
+	vector<string> Points{ "1", "2", "3", "4", "5", "6", "7", "8", "10", "11"};
 	vector<string> Results{ "  Player #1 won!","Player #2 won!" ,"Friendship won! :)" };
-	string one_s = "1";
+	/*string one_s = "1";
 	string two_s = "2";
 	string three_s = "3";
 	string four_s = "4";
@@ -50,7 +50,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	string seven_s = "7";
 	string eight_s = "8";
 	string nine_s = "9";
-	string ten_s = "10";
+	string ten_s = "10";*/
 
 	text scoreOne(Points[0]);
 	scoreOne.setPosition(2000, 2000);
@@ -79,78 +79,12 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 	Winning_Text.setFillTextColor(0, 0, 0);
 	Winning_Text.setCharacterSize(64);
 	
-	/*text PlayerTwoWonText(PlayerTwoWon);
-	PlayerTwoWonText.setPosition(2000, 2000);
-	PlayerTwoWonText.setFillTextColor(0, 0, 0);
-	PlayerTwoWonText.setCharacterSize(64);
 	
-	text FriendshipWonText(FriendshipWon);
-	FriendshipWonText.setPosition(2000, 2000);
-	FriendshipWonText.setFillTextColor(0, 0, 0);
-	FriendshipWonText.setCharacterSize(64);*/
 
 	
 
 
-	text test1(one_s);
-	test1.setPosition(2000, 2000);
-	test1.setFillTextColor(0, 0, 0);
-	test1.setCharacterSize(64);
-
-	text test2(two_s);
-	test2.setPosition(2000, 2000);
-	test2.setFillTextColor(0, 0, 0);
-	test2.setCharacterSize(64);
-
-	text one(one_s);
-	one.setPosition(2000, 2000);
-	one.setFillTextColor(0, 0, 0);
-	one.setCharacterSize(64);
 	
-	text two(two_s);
-	two.setPosition(2000, 2000);
-	two.setFillTextColor(0, 0, 0);
-	two.setCharacterSize(64);
-	
-	text three(three_s);
-	three.setPosition(2000, 2000);
-	three.setFillTextColor(0, 0, 0);
-	three.setCharacterSize(64);
-	
-	text four(four_s);
-	four.setPosition(2000, 2000);
-	four.setFillTextColor(0, 0, 0);
-	four.setCharacterSize(64);
-	
-	text five(five_s);
-	five.setPosition(2000, 2000);
-	five.setFillTextColor(0, 0, 0);
-	five.setCharacterSize(64);
-	
-	text six(six_s);
-	six.setPosition(2000, 2000);
-	six.setFillTextColor(0, 0, 0);
-	six.setCharacterSize(64);
-	
-	text seven(seven_s);
-	seven.setPosition(2000, 2000);
-	seven.setFillTextColor(0, 0, 0);
-	seven.setCharacterSize(64);
-	
-	text eight(eight_s);
-	eight.setPosition(2000, 2000);
-	eight.setFillTextColor(0, 0, 0);
-	eight.setCharacterSize(64);
-	
-	text nine(nine_s);
-	nine.setPosition(2000, 2000);
-	nine.setFillTextColor(0, 0, 0);
-	nine.setCharacterSize(64);
-	
-	text ten(ten_s);
-	ten.setPosition(2000, 2000);
-	ten.setFillTextColor(0, 0, 0);
-	ten.setCharacterSize(64);
 	
 
 	// создание переменных для вывода слов и подсказок
@@ -385,33 +319,12 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 			skip_b.setPosition(2000, 2000);
 			next_b.setPosition(2000, 2000);
 			Word.setPosition(2000, 2000);
-
-			one.setPosition(2000, 2000);
-
-			two.setPosition(2000, 2000);
-
-			three.setPosition(2000, 2000);
-
-			four.setPosition(2000, 2000);
-
-			five.setPosition(2000, 2000);
-
-			six.setPosition(2000, 2000);
-
-			seven.setPosition(2000, 2000);
-
-			eight.setPosition(2000, 2000);
-
-			nine.setPosition(2000, 2000);
-
-			ten.setPosition(2000, 2000);
+			scoreOne.setPosition(2000, 2000);
+			scoreTwo.setPosition(2000, 2000);
+			Winning_Text.setPosition(2000, 2000);
 
 
-				/*PlayerOneWonText.setPosition(2000, 2000);
-
-				PlayerTwoWonText.setPosition(2000, 2000);
-
-				FriendshipWonText.setPosition(2000, 2000);
+			
 
 
 		}
@@ -787,7 +700,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 		window.clear();
 		window.draw(background);
 
-		one.draw(window);
+		/*one.draw(window);
 		two.draw(window);
 		three.draw(window);
 		four.draw(window);
@@ -796,7 +709,7 @@ int Start(RenderWindow& window, std::vector<string> Words, int *arr)
 		seven.draw(window);
 		eight.draw(window);
 		nine.draw(window);
-		ten.draw(window);
+		ten.draw(window);*/
 
 
 		Word.draw(window);
