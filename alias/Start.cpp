@@ -44,16 +44,7 @@ bool Start()
 	int playerTwo_score = 0;
 	vector<string> Points{ "1", "2", "3", "4", "5", "6", "7", "8", "10", "11"};
 	vector<string> Results{ "  Player #1 won!","Player #2 won!" ,"Friendship won! :)" };
-	/*string one_s = "1";
-	string two_s = "2";
-	string three_s = "3";
-	string four_s = "4";
-	string five_s = "5";
-	string six_s = "6";
-	string seven_s = "7";
-	string eight_s = "8";
-	string nine_s = "9";
-	string ten_s = "10";*/
+	
 
 	text scoreOne(Points[0]);
 	scoreOne.setPosition(2000, 2000);
@@ -66,9 +57,7 @@ bool Start()
 	scoreTwo.setCharacterSize(48);
 	std::string textScoreTwo;
 	
-	/*string PlayerOneWon = "  Player #1 won!";
-	string PlayerTwoWon = "Player #2 won!";
-	string FriendshipWon = "Friendship won! :)";*/
+	
 	
 	
 	text Word(Words[arr[0]]);
@@ -161,23 +150,6 @@ bool Start()
 	exit_b.setCharacterSize(48);
 
 
-
-	/*//создание текста для таймера
-	text time_text("00:00");
-	time_text.setPosition(2000, 2000);
-	time_text.setFillTextColor(0, 0, 0);
-	time_text.setCharacterSize(60);
-
-
-	//создание таймера
-	Clock timer;
-	float duration = 10.0f;
-	String timerString;
-	float fMilliseconds, fSeconds; //переменные для хранения  значения с плавающей точкой в секундах и милисекундах
-	int intMilliseconds, intSeconds;// снова переменные, но уже int
-	sf::String stringMilliseconds;// переменная для хранения значения int в милисекундах(!) в строковом формате
-	sf::String stringSeconds; //   Эта переменная предназначена для хранения значения секунд int в строковом формате.*/
-
 	
 
 
@@ -196,47 +168,7 @@ bool Start()
 
 		}
 
-		/*//создание таймера (изначальный вывод за пределы экрана)
-
-		Time time = timer.restart();
-
-		if (duration > 0) {// штуки для преобразований таймера из туториала
-			duration -= time.asSeconds();
-			fMilliseconds = modf(duration, &fSeconds);
-			intSeconds = static_cast<int>(fSeconds);
-			intMilliseconds = static_cast<int>(fMilliseconds * 100);
-			stringMilliseconds = std::to_string(intMilliseconds);
-			stringSeconds = std::to_string(intSeconds);
-
-			if (intMilliseconds <= 0) {
-				stringMilliseconds = "00";
-			}
-			if (intSeconds <= 0) {
-				stringSeconds = "00";
-			}
-			else if (intSeconds < 10) {
-				stringSeconds = "0" + stringSeconds;
-			}
-			timerString = stringSeconds + ":" + stringMilliseconds;
-			time_text.setString(timerString);// вывод таймера в текст
-		}
-
-		if (timerString == "00:00")//(stringMilliseconds == "00" && stringSeconds == "00")   //if (duration == 0)  //if (intSeconds == 0 && intMilliseconds == 0)
-			{
-				/*if (!window_background.loadFromFile("images/player_game_second_window.png")) return 4;
-				background.setTexture(&window_background);
-				if (!window_background.loadFromFile("images/game_window.png")) return 4;
-				background.setTexture(&window_background);
-
-				back_b.setPosition(135, 85);
-
-				time_text.setPosition(2000, 2000);
-				playermode_b.setPosition(2000, 2000);
-				pcmode_b.setPosition(2000, 2000);
-				rules_b.setPosition(2000, 2000);
-				play_b.setPosition(2000, 2000);
-				ready_b.setPosition(2000, 2000);
-			}*/
+		
 
 		// кнопка Play
 		if (play_b.pointedMouse(event, mousePositon)) {
