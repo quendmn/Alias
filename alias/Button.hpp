@@ -36,8 +36,6 @@ public:
 		txt.setPosition(button.getPosition());
 	};
 
-	void followSprite(Sprite& s, float x, float y) override;
-
 	void draw(RenderWindow& window)override;
 
 	bool pressed(Event& event, Vector2f  pos);
@@ -45,8 +43,6 @@ public:
 	bool pointedMouse(Event& event, Vector2f  pos);
 
 	void setButtonSize(float W, float H);
-
-	void setOringCenter();
 
 	void setPosition(float x, float y)  override;
 

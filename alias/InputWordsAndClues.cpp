@@ -7,7 +7,7 @@ int InputWordsAndClues(vector<string> &Words) {
     std::ifstream File(fileName);
     std::string str;
 
-    //int random;
+ 
 
     while (!File.eof())
     {
@@ -27,13 +27,5 @@ int Random_generate(int* arr, int size) {
     }
     return 0;
 }
-
-/*int Image_Icon(Image icon, RenderWindow& window) {
-    if (!icon.loadFromFile("images/icon.png"))
-    {
-        return 1;
-    }
-    window.setIcon(32, 32, icon.getPixelsPtr());
-}*/
 
 

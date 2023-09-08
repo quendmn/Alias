@@ -19,50 +19,34 @@ text::text(String titleName) {
 
 }
 
-//текст будет следить за спрайтом
-void text::followSprite(Sprite& s, float x, float y)
-{	
-	txt.setPosition(s.getPosition().x + x, s.getPosition().y + y);
-}
 
-//дать число тексту
-void text::getNumber(float n)
-{
-	ostringstream chislo;
-
-	chislo << n;
-
-	txt.setString(title + chislo.str());
-}
-
-
-//ф-я для текста
+// изменить строку (текст)
 void text::setString(string name) {
 
 	txt.setString(name);
 
 }
-
+// изменить положение текста
  void text::setPosition(float x, float y) {
 
 	txt.setPosition(x, y);
 
 }
-
+ // изменить цвет текста
 void text::setFillTextColor(float R, float G1, float B) {
 
 	txt.setFillColor(Color(R, G1, B));
 
 }
 
-//поменять размер шрифта
+// изменить размер шрифта
 void text::setCharacterSize(float a) {
 
 	txt.setCharacterSize(a);
 
 }
 
-//нарисовать в окне
+// отобразить в окне
 void text::draw(RenderWindow& window) {
 
 	window.draw(txt);

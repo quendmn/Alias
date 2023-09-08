@@ -2,25 +2,8 @@
 #include <SFML/Graphics.hpp>
 
 RectangleShape button;
-//Button::Button(float W, float H, string titleName) :text(titleName){
-//
-//
-//	w = W;
-//	h = H;
-//
-//	press = false;
-//
-//	button.setSize(Vector2f(W, H));
-//
-//	txt.setPosition(button.getPosition());
-//
-//}
-void Button::followSprite(Sprite& s, float x, float y){
 
-	button.setPosition(s.getPosition().x + x, s.getPosition().y + y);
-	txt.setPosition(s.getPosition().x + x, s.getPosition().y + y);
-}
-
+// отобразить в окне
 void Button::draw(RenderWindow& window) {
 	txt.setPosition(button.getPosition());
 
@@ -29,6 +12,7 @@ void Button::draw(RenderWindow& window) {
 	window.draw(txt);
 }
 
+// проверка на нажатие
 bool Button::pressed(Event& event, Vector2f  pos) {
 	if (button.getGlobalBounds().contains(pos.x, pos.y) && event.type == Event::MouseButtonPressed && !press) {
 
@@ -54,6 +38,8 @@ bool Button::pressed(Event& event, Vector2f  pos) {
 
 	}
 }
+
+// проверка на наведение мыши
 bool Button::pointedMouse(Event& event, Vector2f  pos) {
 	if (button.getGlobalBounds().contains(pos.x, pos.y)) return true;
 
@@ -68,11 +54,6 @@ void Button::setButtonSize(float W, float H) {
 
 	button.setSize(Vector2f(W, H));
 
-}
-//Поменять на центр 
-void Button::setOringCenter() {
-
-	button.setOrigin(w / 2, h / 2);
 }
 
 //поменять позицию

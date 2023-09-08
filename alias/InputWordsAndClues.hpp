@@ -9,7 +9,6 @@
 
 int InputWordsAndClues(std::vector<std::string>& Words);
 int Random_generate(int* arr, int size);
-//int Image_Icon(Image icon, RenderWindow& window);
 
 #endif
 

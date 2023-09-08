@@ -22,10 +22,6 @@ public:
 	Text txt;
 	text(String shribeName);
 
-	virtual void followSprite(Sprite& s, float x, float y);
-
-	void getNumber(float n);
-
 	void setString(string name);
 
 	virtual void setPosition(float x, float y);
