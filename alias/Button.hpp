@@ -23,7 +23,7 @@ private:
 
 public:
 
-	RectangleShape button; //сам крвадрат
+	RectangleShape button; //сам квадрат
 
 	Button(float W, float H, string titleName) :text(titleName){
 		w = W;

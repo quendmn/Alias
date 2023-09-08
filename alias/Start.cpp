@@ -3,6 +3,7 @@
 #include <list>
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "InputWordsAndClues.hpp"
 #include "Text.hpp"
 #include "Button.hpp"
@@ -11,15 +12,15 @@
 using namespace std;
 using namespace sf;
 
-//bool Start(RenderWindow& window, std::vector<string> Words, int *arr)
 bool Start()
 {
+
 	// создание окна #1 (главное меню)
 	RenderWindow window(sf::VideoMode(1440, 900), "Alias");
 	std::vector<string> Words;
 	int size = 20;
 	int* arr = new int[size];
-	InputWordsAndClues_1000(Words);
+	InputWordsAndClues(Words);
 	Random_generate(arr, size);
 
 	RectangleShape background(Vector2f(1440, 900));
@@ -27,6 +28,8 @@ bool Start()
 	if (!window_background.loadFromFile("images/main_window.png")) return false;
 	background.setTexture(&window_background);
 	
+	
+
 	// создание иконки
 	
 	Image icon;
@@ -44,16 +47,6 @@ bool Start()
 	int playerTwo_score = 0;
 	vector<string> Points{ "1", "2", "3", "4", "5", "6", "7", "8", "10", "11"};
 	vector<string> Results{ "  Player #1 won!","Player #2 won!" ,"Friendship won! :)" };
-	/*string one_s = "1";
-	string two_s = "2";
-	string three_s = "3";
-	string four_s = "4";
-	string five_s = "5";
-	string six_s = "6";
-	string seven_s = "7";
-	string eight_s = "8";
-	string nine_s = "9";
-	string ten_s = "10";*/
 
 	text scoreOne(Points[0]);
 	scoreOne.setPosition(2000, 2000);
@@ -65,11 +58,6 @@ bool Start()
 	scoreTwo.setFillTextColor(0, 0, 0);
 	scoreTwo.setCharacterSize(48);
 	std::string textScoreTwo;
-	
-	/*string PlayerOneWon = "  Player #1 won!";
-	string PlayerTwoWon = "Player #2 won!";
-	string FriendshipWon = "Friendship won! :)";*/
-	
 	
 	text Word(Words[arr[0]]);
 	Word.setPosition(2000, 2000);
@@ -160,26 +148,16 @@ bool Start()
 	exit_b.setPosition(2000, 2000);
 	exit_b.setCharacterSize(48);
 
+	//звуки
+	Music click_sound;
+	click_sound.openFromFile("sounds/click.ogg");
 
-
-	/*//создание текста для таймера
-	text time_text("00:00");
-	time_text.setPosition(2000, 2000);
-	time_text.setFillTextColor(0, 0, 0);
-	time_text.setCharacterSize(60);
-
-
-	//создание таймера
-	Clock timer;
-	float duration = 10.0f;
-	String timerString;
-	float fMilliseconds, fSeconds; //переменные для хранения  значения с плавающей точкой в секундах и милисекундах
-	int intMilliseconds, intSeconds;// снова переменные, но уже int
-	sf::String stringMilliseconds;// переменная для хранения значения int в милисекундах(!) в строковом формате
-	sf::String stringSeconds; //   Эта переменная предназначена для хранения значения секунд int в строковом формате.*/
-
+	Music background_music;
+	background_music.openFromFile("sounds/music.wav");
 	
-
+	background_music.setVolume(50);
+	background_music.play();
+	background_music.setLoop(true);
 
 	while (window.isOpen())
 	{
@@ -193,50 +171,9 @@ bool Start()
 
 			if (event.type == sf::Event::Closed)
 				window.close();
-
+			
 		}
 
-		/*//создание таймера (изначальный вывод за пределы экрана)
-
-		Time time = timer.restart();
-
-		if (duration > 0) {// штуки для преобразований таймера из туториала
-			duration -= time.asSeconds();
-			fMilliseconds = modf(duration, &fSeconds);
-			intSeconds = static_cast<int>(fSeconds);
-			intMilliseconds = static_cast<int>(fMilliseconds * 100);
-			stringMilliseconds = std::to_string(intMilliseconds);
-			stringSeconds = std::to_string(intSeconds);
-
-			if (intMilliseconds <= 0) {
-				stringMilliseconds = "00";
-			}
-			if (intSeconds <= 0) {
-				stringSeconds = "00";
-			}
-			else if (intSeconds < 10) {
-				stringSeconds = "0" + stringSeconds;
-			}
-			timerString = stringSeconds + ":" + stringMilliseconds;
-			time_text.setString(timerString);// вывод таймера в текст
-		}
-
-		if (timerString == "00:00")//(stringMilliseconds == "00" && stringSeconds == "00")   //if (duration == 0)  //if (intSeconds == 0 && intMilliseconds == 0)
-			{
-				/*if (!window_background.loadFromFile("images/player_game_second_window.png")) return 4;
-				background.setTexture(&window_background);
-				if (!window_background.loadFromFile("images/game_window.png")) return 4;
-				background.setTexture(&window_background);
-
-				back_b.setPosition(135, 85);
-
-				time_text.setPosition(2000, 2000);
-				playermode_b.setPosition(2000, 2000);
-				pcmode_b.setPosition(2000, 2000);
-				rules_b.setPosition(2000, 2000);
-				play_b.setPosition(2000, 2000);
-				ready_b.setPosition(2000, 2000);
-			}*/
 
 		// кнопка Play
 		if (play_b.pointedMouse(event, mousePositon)) {
@@ -251,9 +188,11 @@ bool Start()
 		}
 
 		if (play_b.pressed(event, mousePositon)) {
-
+			
 			if (!window_background.loadFromFile("images/mode_window.png")) return false;
 			background.setTexture(&window_background);
+
+			click_sound.play();
 
 			back_b.setPosition(135, 85);
 			playermode_b.setPosition(317, 450);
@@ -280,6 +219,7 @@ bool Start()
 			if (!window_background.loadFromFile("images/rules_window.png")) return false;
 			background.setTexture(&window_background);
 
+			click_sound.play();
 			back_b.setPosition(135, 85);
 			rules_b.setPosition(2000, 2000);
 			play_b.setPosition(2000, 2000);
@@ -304,6 +244,8 @@ bool Start()
 			
 			if (!window_background.loadFromFile("images/main_window.png")) return false;
 			background.setTexture(&window_background);
+
+			click_sound.play();
 
 			counter = 1;
 			playerOne_score = 0;
@@ -346,6 +288,8 @@ bool Start()
 			if (!window_background.loadFromFile("images/player_game_window.png")) return false;
 			background.setTexture(&window_background);
 
+			click_sound.play();
+
 			back_b.setPosition(135, 85);
 			ready_b.setPosition(403, 557);
 
@@ -377,6 +321,7 @@ bool Start()
 			if (!window_background.loadFromFile("images/ForPlayerOne_window.png")) return false;
 			background.setTexture(&window_background);
 
+			click_sound.play();
 			Word.setPosition(600, 498);
 
 			guessedOne_b.setPosition(316, 726);
@@ -411,6 +356,7 @@ bool Start()
 		if (guessedOne_b.pressed(event, mousePositon)) {
 
 			skip_b.setPosition(769, 726);
+			click_sound.play();
 			counter++;
 			playerOne_score++;
 			if (counter == 2)Word.setString(Words[arr[1]]);
@@ -461,6 +407,7 @@ bool Start()
 		if (guessedTwo_b.pressed(event, mousePositon)) {
 
 			skip_b.setPosition(769, 726);
+			click_sound.play();
 			counter++;
 			playerTwo_score++;
 			if (counter == 12)Word.setString(Words[arr[11]]);
@@ -543,6 +490,7 @@ bool Start()
 		
 		if (skip_b.pressed(event, mousePositon)) {
 
+			click_sound.play();
 			counter++;
 			if (counter == 2)Word.setString(Words[arr[1]]);
 			if (counter == 3)Word.setString(Words[arr[2]]);
@@ -649,7 +597,7 @@ bool Start()
 			if (!window_background.loadFromFile("images/theEnd_window.png")) return false;
 			background.setTexture(&window_background);
 
-
+			click_sound.play();
 
 			back_b.setPosition(2000, 2000);
 			playermode_b.setPosition(2000, 2000);
@@ -685,7 +633,7 @@ bool Start()
 		if (exit_b.pressed(event, mousePositon)) {
 
 			
-
+			click_sound.play();
 
 
 			back_b.setPosition(2000, 2000);

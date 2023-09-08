@@ -7,7 +7,7 @@
 #include <string>
 #include <sstream>
 
-int InputWordsAndClues_1000(std::vector<std::string>& Words);
+int InputWordsAndClues(std::vector<std::string>& Words);
 int Random_generate(int* arr, int size);
 //int Image_Icon(Image icon, RenderWindow& window);
 
