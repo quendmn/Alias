@@ -38,6 +38,29 @@ bool Start()
 		return false;
 	}
 	window.setIcon(32, 32, icon.getPixelsPtr());
+
+	// котэ 
+
+	Image cat1; 
+	cat1.loadFromFile("images/cat1.png");
+
+	Texture cat1_t;
+	cat1_t.loadFromImage(cat1);
+
+	Sprite cat1_s;
+	cat1_s.setTexture(cat1_t);
+	cat1_s.setPosition(2000, 2000);
+
+	Image cat2;
+	cat2.loadFromFile("images/cat2.png");
+
+	Texture cat2_t;
+	cat2_t.loadFromImage(cat2);
+
+	Sprite cat2_s;
+	cat2_s.setTexture(cat2_t);
+	cat2_s.setPosition(2000, 2000);
+
 	
 	// вывод количества очков
 	Font font;
@@ -367,7 +390,12 @@ bool Start()
 			if (counter == 7)Word.setString(Words[arr[6]]);
 			if (counter == 8)Word.setString(Words[arr[7]]);
 			if (counter == 9)Word.setString(Words[arr[8]]);
-			if (counter == 10)Word.setString(Words[arr[9]]);
+			if (counter == 10)
+			{
+				Word.setString(Words[arr[9]]);
+				cat1_s.setPosition(-52, 553);
+
+			}
 
 			if (counter == 11)
 			{
@@ -418,8 +446,13 @@ bool Start()
 			if (counter == 17)Word.setString(Words[arr[16]]);
 			if (counter == 18)Word.setString(Words[arr[17]]);
 			if (counter == 19)Word.setString(Words[arr[18]]);
-			if (counter == 20)Word.setString(Words[arr[19]]);
-			
+			if (counter == 20)
+			{
+
+				Word.setString(Words[arr[19]]);
+				cat2_s.setPosition(1328, 628);
+
+			}
 			if (counter == 21)
 			{
 				Word.setPosition(2000, 2000);
@@ -664,6 +697,9 @@ bool Start()
 		Winning_Text.draw(window);
 		scoreTwo.draw(window);
 		scoreOne.draw(window);
+
+		window.draw(cat1_s);
+		window.draw(cat2_s);
 
 		next_b.draw(window);
 		play_b.draw(window);
